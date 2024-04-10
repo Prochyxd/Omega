@@ -1,0 +1,78 @@
+{
+    "player": {
+      "name": "Player",
+      "level": 1,
+      "health": 100,
+      "attack": 10,
+      "defense": 5,
+      "experience": 0,
+      "gold": 0,
+      "inventory": [],
+      "location": "Room 1",
+      "quests": [],
+      "achievements": []
+    },
+    "locations": [
+      {
+        "name": "Room 1",
+        "description": "You are in Room 1.",
+        "exits": {
+          "east": "Room 2",
+          "south": "Room 3"
+        },
+        "objects": [],
+        "npcs": [],
+        "enemies": []
+      },
+      {
+        "name": "Room 2",
+        "description": "You are in Room 2.",
+        "exits": {
+          "west": "Room 1",
+          "south": "Room 4"
+        },
+        "objects": [],
+        "npcs": [],
+        "enemies": []
+      },
+      {
+        "name": "Room 3",
+        "description": "You are in Room 3.",
+        "exits": {
+          "north": "Room 1",
+          "east": "Room 4",
+          "south": "Room 5"
+        },
+        "objects": [],
+        "npcs": [],
+        "enemies": []
+      },
+      {
+        "name": "Room 4",
+        "description": "You are in Room 4.",
+        "exits": {
+          "north": "Room 2",
+          "west": "Room 3"
+        },
+        "objects": [],
+        "npcs": [],
+        "enemies": []
+      },
+      {
+        "name": "Room 5",
+        "description": "You are in Room 5.",
+        "exits": {
+          "north": "Room 3"
+        },
+        "objects": [],
+        "npcs": [],
+        "enemies": []
+      }
+    ],
+    "objects": [],
+    "npcs": [],
+    "enemies": [],
+    "quests": [],
+    "achievements": []
+  }
+  
