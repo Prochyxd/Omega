@@ -1,0 +1,27 @@
+[
+    {
+        "name": "John Doe",
+        "score": 25,
+        "time_taken": 35
+    },
+    {
+        "name": "Test",
+        "score": 10,
+        "time_taken": 32.270997762680054
+    },
+    {
+        "name": "Prochy",
+        "score": 0,
+        "time_taken": 3.687065601348877
+    },
+    {
+        "name": "Karel",
+        "score": 0,
+        "time_taken": 16.964587211608887
+    },
+    {
+        "name": "Prochy",
+        "score": 0,
+        "time_taken": 713.7574408054352
+    }
+]

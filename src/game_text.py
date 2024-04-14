@@ -185,6 +185,10 @@ class Game:
             print("You can't go that way.")
 
     def look(self):
+        #if there is nothing in the room print "There is nothing here"
+        if not self.locations[self.player.location]["objects"] and not self.locations[self.player.location]["npcs"] and not self.locations[self.player.location]["enemies"]:
+            print("There is nothing here.")
+            return
         print(self.locations[self.player.location]["description"])
         print("You see:")
         for obj in self.locations[self.player.location]["objects"]:
