@@ -1,1 +1,19 @@
 2024-04-15 11:14:53 - Word Replacement: Replaced words: {'the': 'ß', 'Whiskers': 'ppp'}
+2024-04-16 09:37:03 - Task Added: Task: Omega, Description: Musím udìlat omegu nebo bude prùser
+2024-04-16 09:37:07 - Viewed All Tasks: Viewed all tasks in the list
+2024-04-16 09:37:14 - Viewed All Tasks: Viewed all tasks in the list
+2024-04-16 09:37:15 - Task Marked as Complete: Task number: 2
+2024-04-16 09:37:18 - Viewed All Tasks: Viewed all tasks in the list
+2024-04-16 09:37:20 - Task Deleted: Task number: 3
+2024-04-16 09:37:22 - Viewed All Tasks: Viewed all tasks in the list
+2024-04-16 10:23:04 - Viewed All Tasks: Viewed all tasks in the list
+2024-04-16 10:23:14 - Task Added: Task: HOnza, Description: HOnza smrdifgdjlkgd
+2024-04-16 10:23:15 - Viewed All Tasks: Viewed all tasks in the list
+2024-04-16 10:23:18 - Viewed All Tasks: Viewed all tasks in the list
+2024-04-16 10:23:20 - Task Marked as Complete: Task number: 3
+2024-04-16 10:23:22 - Viewed All Tasks: Viewed all tasks in the list
+2024-04-16 10:23:27 - Viewed All Tasks: Viewed all tasks in the list
+2024-04-16 10:23:27 - Task Deleted: Task number: 3
+2024-04-16 10:40:04 - Task Added: Task: Omega, Description: Musim udelat omegu, Deadline: 12.3.20209322
+2024-04-16 10:40:42 - Task Added: Task: fsd, Description: fdsf, Deadline: 21312
+2024-04-16 10:40:43 - Viewed All Tasks: Viewed all tasks in the list

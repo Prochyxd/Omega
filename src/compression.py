@@ -47,10 +47,3 @@ def compression():
     output_file_path = UserInterface.get_output_file()
     with open(output_file_path, "w") as file:
         file.write(compressed_text)
-
-    # Print the log
-    print("-------------------------------------------------------------------------------------------")
-    print("Do you want to print the log? (yes/no): ")
-    print_log = input()
-    if print_log.lower() == "yes":
-        LogManager.print_log()

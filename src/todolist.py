@@ -9,6 +9,7 @@
 
 import json
 import os
+from log_manager import LogManager
 
 def load_data():
     if os.path.exists("files/tododata.json"):
@@ -17,7 +18,7 @@ def load_data():
         return data
     else:
         return []
-    
+
 def save_data(data):
     with open("files/tododata.json", "w") as file:
         json.dump(data, file)
@@ -26,9 +27,11 @@ def add_task():
     data = load_data()
     task = input("Enter the task: ")
     description = input("Enter the task description (optional): ")
-    data.append({"task": task, "description": description, "completed": False})
+    deadline = input("Enter the deadline of your task(optional): ")
+    data.append({"task": task, "description": description, "deadline": deadline, "completed": False})
     save_data(data)
     print("Task added successfully.")
+    LogManager.log_activity("Task Added", f"Task: {task}, Description: {description}, Deadline: {deadline}")
 
 def view_all_tasks():
     data = load_data()
@@ -37,11 +40,15 @@ def view_all_tasks():
         for i, task in enumerate(data, 1):
             status = "Completed" if task["completed"] else "Not Completed"
             description = task["description"]
+            deadline = task["deadline"]
             print(f"{i}. {task['task']} - {status}")
             if description:
                 print(f"   Description: {description}")
+            if deadline:
+                print(f"   Deadline: {task['deadline']}")
     else:
         print("No tasks found.")
+    LogManager.log_activity("Viewed All Tasks", "Viewed all tasks in the list")
 
 def mark_task_as_complete():
     data = load_data()
@@ -51,6 +58,7 @@ def mark_task_as_complete():
         data[task_number - 1]["completed"] = True
         save_data(data)
         print("Task marked as complete.")
+        LogManager.log_activity("Task Marked as Complete", f"Task number: {task_number}")
     else:
         print("Invalid task number.")
 
@@ -62,6 +70,7 @@ def delete_task():
         del data[task_number - 1]
         save_data(data)
         print("Task deleted successfully.")
+        LogManager.log_activity("Task Deleted", f"Task number: {task_number}")
     else:
         print("Invalid task number.")
 
@@ -86,5 +95,3 @@ def todo():
             break
         else:
             print("Invalid choice. Please enter a number between 1 and 5.")
-
-            

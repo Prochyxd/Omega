@@ -1,7 +1,7 @@
 from math_tests import math_tests
 from compression import compression
 from todolist import todo
-
+from log_manager import LogManager
 
 if __name__ == "__main__":
     print("Choose the program to run:")
@@ -18,3 +18,10 @@ if __name__ == "__main__":
         todo()	
     else:
         print("Invalid choice.")
+
+    # Print the log
+    print("-------------------------------------------------------------------------------------------")
+    print("Do you want to print the log? (yes/no): ")
+    print_log = input()
+    if print_log.lower() == "yes":
+        LogManager.print_log()

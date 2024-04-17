@@ -1,16 +1,3 @@
-#The game will be a simple text based game where the player will be able to move around a map and interact with objects / NPCs
-#The player will be able to pick up objects and use them to solve puzzles
-#The player will have a limited inventory space
-#The player will be able to interact with NPCs and have conversations with them
-#The player will be able to fight enemies and level up
-#The player will be able to save and load their game into json files
-#The player will be able to view their stats
-#The player will be able to view the map
-#The player will be able to view their inventory
-#The player will be able to get quests from NPCs
-#The player will be able to view their quest log
-#The player will be able to view their achievements
-
 import json
 import os
 import random
@@ -68,7 +55,6 @@ class Player:
     def add_achievement(self, achievement: str):
         self.achievements.append(achievement)
 
-# Define the game class
 class Game:
     def __init__(self):
         self.player = None
@@ -185,7 +171,6 @@ class Game:
             print("You can't go that way.")
 
     def look(self):
-        #if there is nothing in the room print "There is nothing here"
         if not self.locations[self.player.location]["objects"] and not self.locations[self.player.location]["npcs"] and not self.locations[self.player.location]["enemies"]:
             print("There is nothing here.")
             return
