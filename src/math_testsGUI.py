@@ -5,7 +5,6 @@ import math_tests
 import random
 import time
 import json
-
 class MathTestsGUI:
     def __init__(self, root):
         self.root = root
@@ -127,29 +126,36 @@ class MathTestsGUI:
         self.current_problem_index += 1
         self.show_problem(self.problems[self.category_var.get()][self.difficulty_var.get()])
 
-    def end_tests(self):
-        end_time = time.time()
-        time_taken = end_time - self.start_time
+def end_tests(self):
+    end_time = time.time()
+    time_taken = end_time - self.start_time
 
+    name = self.name_entry.get()  # Access name_entry only if it exists
+    if self.name_entry.winfo_exists():
         name = self.name_entry.get()
-        score = int(self.score_var.get())
+    else:
+        name = "Unknown"
 
-        math_tests.save_score(name, score, time_taken)
+    score = int(self.score_var.get())
 
-        self.score_label.destroy()
-        self.score_var.destroy()
-        self.problem_label.destroy()
-        self.submit_button.destroy()
+    math_tests.save_score(name, score, time_taken)
 
-        self.leaderboard_label = tk.Label(self.root, text="Leaderboard:")
-        self.leaderboard_label.pack()
+    self.score_label.destroy()
+    self.score_var.destroy()
+    self.problem_label.destroy()
+    if hasattr(self, "choices_frame"):
+        self.choices_frame.destroy()  # Check if choices_frame exists before destroying
+    self.submit_button.destroy()
 
-        with open("files/math_problems_leaderboard.json", "r", encoding="utf-8") as file:
-            leaderboard = json.load(file)
-            leaderboard = sorted(leaderboard, key=lambda x: (x["score"], -x["time_taken"]), reverse=True)
+    self.leaderboard_label = tk.Label(self.root, text="Leaderboard:")
+    self.leaderboard_label.pack()
 
-            for i, player in enumerate(leaderboard, 1):
-                tk.Label(self.root, text=f"{i}. {player['name']} - {player['score']} - {player['time_taken']:.2f} seconds").pack()
+    with open("files/math_problems_leaderboard.json", "r", encoding="utf-8") as file:
+        leaderboard = json.load(file)
+        leaderboard = sorted(leaderboard, key=lambda x: (x["score"], -x["time_taken"]), reverse=True)
+
+        for i, player in enumerate(leaderboard, 1):
+            tk.Label(self.root, text=f"{i}. {player['name']} - {player['score']} - {player['time_taken']:.2f} seconds").pack()
 
 
 def math_tests_gui():
