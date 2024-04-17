@@ -17,3 +17,39 @@
 2024-04-16 10:40:04 - Task Added: Task: Omega, Description: Musim udelat omegu, Deadline: 12.3.20209322
 2024-04-16 10:40:42 - Task Added: Task: fsd, Description: fdsf, Deadline: 21312
 2024-04-16 10:40:43 - Viewed All Tasks: Viewed all tasks in the list
+2024-04-17 11:44:17 - Math Tests opened: Math Tests
+2024-04-17 11:44:55 - To-Do List started: To-Do List
+2024-04-17 11:45:44 - Task Added: Task: Neco, Description: gungo, Deadline: 
+2024-04-17 11:45:54 - Task Marked as Complete: Task number: 2
+2024-04-17 11:45:56 - Task Marked as Complete: Task number: 2
+2024-04-17 11:46:03 - Task Marked as Complete: Task number: 2
+2024-04-17 11:46:15 - Task Deleted: Task number: 1
+2024-04-17 11:46:28 - Console UI for ToDo list opened: To-Do List
+2024-04-17 11:48:09 - To-Do List started: To-Do List
+2024-04-17 11:48:11 - GUI for ToDo list opened: To-Do List
+2024-04-17 11:48:30 - Task Added: Task: Matyas zmrd, Description: mates fakt smrdi, Deadline: ted
+2024-04-17 11:49:33 - Task Marked as Complete: Task number: 2
+2024-04-17 11:49:44 - Task Deleted: Task number: 1
+2024-04-17 12:01:54 - Math Tests opened: Math Tests
+2024-04-17 12:01:56 - Console UI for Math Tests opened: Math Tests
+2024-04-17 12:03:26 - Math Tests opened: Math Tests
+2024-04-17 12:03:27 - Console UI for Math Tests opened: Math Tests
+2024-04-17 12:03:47 - Math Tests opened: Math Tests
+2024-04-17 12:04:45 - To-Do List started: To-Do List
+2024-04-17 12:04:47 - Console UI for ToDo list opened: To-Do List
+2024-04-17 12:04:51 - Task Added: Task: 1, Description: 1, Deadline: 1
+2024-04-17 12:04:54 - Task Added: Task: , Description: , Deadline: 
+2024-04-17 12:05:11 - Math Tests opened: Math Tests
+2024-04-17 12:05:12 - Console UI for Math Tests opened: Math Tests
+2024-04-17 12:05:36 - Math Tests opened: Math Tests
+2024-04-17 12:05:37 - GUI for Math Tests opened: Math Tests
+2024-04-17 12:09:43 - Math Tests opened: Math Tests
+2024-04-17 12:09:44 - GUI for Math Tests opened: Math Tests
+2024-04-17 12:10:15 - Math Tests opened: Math Tests
+2024-04-17 12:10:15 - GUI for Math Tests opened: Math Tests
+2024-04-17 12:12:34 - Math Tests opened: Math Tests
+2024-04-17 12:12:35 - GUI for Math Tests opened: Math Tests
+2024-04-17 12:13:33 - Math Tests opened: Math Tests
+2024-04-17 12:13:34 - GUI for Math Tests opened: Math Tests
+2024-04-17 12:22:06 - Math Tests opened: Math Tests
+2024-04-17 12:22:07 - GUI for Math Tests opened: Math Tests
