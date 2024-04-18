@@ -4,7 +4,6 @@ from log_manager import LogManager
 
 # todolist.py
 
-
 def load_data():
     if os.path.exists("files/tododata.json"):
         with open("files/tododata.json", "r") as file:
@@ -22,6 +21,12 @@ def add_task():
     description = input("Enter description: ")
     deadline = input("Enter deadline: ")
     
+    data = load_data()
+    data.append({"task": task, "description": description, "deadline": deadline, "completed": False})
+    save_data(data)
+    LogManager.log_activity("Task Added", f"Task: {task}, Description: {description}, Deadline: {deadline}")
+
+def add_task(task, description, deadline):
     data = load_data()
     data.append({"task": task, "description": description, "deadline": deadline, "completed": False})
     save_data(data)

@@ -51,61 +51,63 @@ def delete_task():
     except ValueError:
         result_label.config(text="Please enter a valid task number.")
 
-root = tk.Tk()
-root.title("To-Do List")
 
-# Add Task Section
-add_frame = tk.Frame(root)
-add_frame.pack(pady=10)
+def todolistGUI():
+    root = tk.Tk()
+    root.title("To-Do List")
 
-tk.Label(add_frame, text="Task:").grid(row=0, column=0)
-task_entry = tk.Entry(add_frame)
-task_entry.grid(row=0, column=1)
+    # Add Task Section
+    add_frame = tk.Frame(root)
+    add_frame.pack(pady=10)
 
-tk.Label(add_frame, text="Description:").grid(row=1, column=0)
-description_entry = tk.Entry(add_frame)
-description_entry.grid(row=1, column=1)
+    tk.Label(add_frame, text="Task:").grid(row=0, column=0)
+    task_entry = tk.Entry(add_frame)
+    task_entry.grid(row=0, column=1)
 
-tk.Label(add_frame, text="Deadline:").grid(row=2, column=0)
-deadline_entry = tk.Entry(add_frame)
-deadline_entry.grid(row=2, column=1)
+    tk.Label(add_frame, text="Description:").grid(row=1, column=0)
+    description_entry = tk.Entry(add_frame)
+    description_entry.grid(row=1, column=1)
 
-add_button = tk.Button(add_frame, text="Add Task", command=add_task)
-add_button.grid(row=3, columnspan=2)
+    tk.Label(add_frame, text="Deadline:").grid(row=2, column=0)
+    deadline_entry = tk.Entry(add_frame)
+    deadline_entry.grid(row=2, column=1)
 
-# View Tasks Section
-view_frame = tk.Frame(root)
-view_frame.pack(pady=10)
+    add_button = tk.Button(add_frame, text="Add Task", command=add_task)
+    add_button.grid(row=3, columnspan=2)
 
-view_button = tk.Button(view_frame, text="View All Tasks", command=view_all_tasks)
-view_button.pack()
+    # View Tasks Section
+    view_frame = tk.Frame(root)
+    view_frame.pack(pady=10)
 
-tasks_text = tk.Text(view_frame, height=10, width=50)
-tasks_text.pack()
+    view_button = tk.Button(view_frame, text="View All Tasks", command=view_all_tasks)
+    view_button.pack()
 
-# Mark Task as Complete Section
-mark_frame = tk.Frame(root)
-mark_frame.pack(pady=10)
+    tasks_text = tk.Text(view_frame, height=10, width=50)
+    tasks_text.pack()
 
-tk.Label(mark_frame, text="Task Number:").grid(row=0, column=0)
-mark_task_entry = tk.Entry(mark_frame)
-mark_task_entry.grid(row=0, column=1)
+    # Mark Task as Complete Section
+    mark_frame = tk.Frame(root)
+    mark_frame.pack(pady=10)
 
-mark_button = tk.Button(mark_frame, text="Mark Task as Complete", command=mark_task_as_complete)
-mark_button.grid(row=1, columnspan=2)
+    tk.Label(mark_frame, text="Task Number:").grid(row=0, column=0)
+    mark_task_entry = tk.Entry(mark_frame)
+    mark_task_entry.grid(row=0, column=1)
 
-# Delete Task Section
-delete_frame = tk.Frame(root)
-delete_frame.pack(pady=10)
+    mark_button = tk.Button(mark_frame, text="Mark Task as Complete", command=mark_task_as_complete)
+    mark_button.grid(row=1, columnspan=2)
 
-tk.Label(delete_frame, text="Task Number:").grid(row=0, column=0)
-delete_task_entry = tk.Entry(delete_frame)
-delete_task_entry.grid(row=0, column=1)
+    # Delete Task Section
+    delete_frame = tk.Frame(root)
+    delete_frame.pack(pady=10)
 
-delete_button = tk.Button(delete_frame, text="Delete Task", command=delete_task)
-delete_button.grid(row=1, columnspan=2)
+    tk.Label(delete_frame, text="Task Number:").grid(row=0, column=0)
+    delete_task_entry = tk.Entry(delete_frame)
+    delete_task_entry.grid(row=0, column=1)
 
-result_label = tk.Label(root, text="")
-result_label.pack()
+    delete_button = tk.Button(delete_frame, text="Delete Task", command=delete_task)
+    delete_button.grid(row=1, columnspan=2)
 
-root.mainloop()
+    result_label = tk.Label(root, text="")
+    result_label.pack()
+
+    root.mainloop()

@@ -1,9 +1,305 @@
-Once upon bbbbb time, in bbbbb qubbbbbint little villbbbbbge nestled bbbbbmidst rolling hills bbbbbnd lush greenery, testicekjooooore lived bbbbb curious cbbbbbt nbbbbbmed ppppppppppppopop. ppppppppppppopop wbbbbbs bbbbb peculibbbbbr feline, with bbbbb penchbbbbbnt for exploring every nook bbbbbnd crbbbbbnny of testicekjooooo villbbbbbge. From testicekjooooo cobblestone streets to testicekjooooo towering trees in testicekjooooo forest, ppppppppppppopop robbbbbmed with boundless curiosity.
+import unittest
+from todolistUI import add_task, view_all_tasks
 
-Every dbbbbby, ppppppppppppopop would embbbbbbrk on bbbbb new bbbbbdventure, his whiskers twitching with excitement bbbbbs he bounded through testicekjooooo tbbbbbll grbbbbbss bbbbbnd underbrush. Along testicekjooooo wbbbbby, he would encounter bbbbbll sorts of crebbbbbtures, from chirping birds to scurrying mice. But no mbbbbbtter where his explorbbbbbtions took him, ppppppppppppopop bbbbblwbbbbbys found his wbbbbby bbbbbbck home before testicekjooooo sun set behind testicekjooooo distbbbbbnt mountbbbbbins.
+class AddTaskTestCase(unittest.TestCase):
+    def test_add_task(self):
+        # Test case 1: Adding a task with all optional parameters
+        task = "Buy groceries"
+        description = "Buy milk, eggs, and bread"
+        deadline = "2022-12-31"
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task, description, deadline), expected_output)
 
-In testicekjooooo evenings, ppppppppppppopop would curl up by testicekjooooo fireplbbbbbce, his tbbbbbil swishing contentedly bbbbbs he bbbbbbsked in testicekjooooo wbbbbbrmth of testicekjooooo fire. As he drifted off to sleep, his drebbbbbms were filled with visions of testicekjooooo dbbbbby's bbbbbdventures, replbbbbbying over bbbbbnd over in his mind like bbbbb never-ending loop.
+        # Test case 2: Adding a task without optional parameters
+        task = "Clean the house"
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task), expected_output)
 
-But one dbbbbby, bbbbbs ppppppppppppopop set out on his usubbbbbl jbbbbbunt through testicekjooooo villbbbbbge, he stumbled upon something he hbbbbbd never seen before. It wbbbbbs bbbbb mysterious-looking door, tucked bbbbbwbbbbby in bbbbb forgotten corner of testicekjooooo forest. Intrigued, ppppppppppppopop bbbbbpprobbbbbched cbbbbbutiously, his whiskers quivering with bbbbbnticipbbbbbtion.
+        # Test case 3: Adding a task with empty task name
+        task = ""
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task), expected_output)
 
-With bbbbb tentbbbbbtive pbbbbbw, ppppppppppppopop pushed open testicekjooooo door bbbbbnd stepped inside, his hebbbbbrt pounding with excitement. Whbbbbbt he found on testicekjooooo otesticekjooooor side wbbbbbs beyond his wildest drebbbbbms—bbbbb mbbbbbgicbbbbbl world filled with wonders beyond imbbbbbginbbbbbtion. And so, with bbbbb boundless spirit of bbbbbdventure, ppppppppppppopop set off to explore this new rebbbbblm, his whiskers twitching with excitement bbbbbt testicekjooooo endless possibilities thbbbbbt lbbbbby bbbbbhebbbbbd.
+        # Test case 4: Adding a task with empty description and deadline
+        task = "Walk the dog"
+        description = ""
+        deadline = ""
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task, description, deadline), expected_output)
+
+    def test_view_all_tasks(self):
+        # Test case 1: Viewing all tasks when tasks exist
+        expected_output = "All tasks:\n1. Buy groceries - Not Completed\n   Description: Buy milk, eggs, and bread\n   Deadline: 2022-12-31\n2. Clean the house - Not Completed\n3. Walk the dog - Not Completed"
+        self.assertEqual(view_all_tasks(), expected_output)
+
+        # Test case 2: Viewing all tasks when no tasks exist
+        expected_output = "No tasks found."
+        self.assertEqual(view_all_tasks(), expected_output)
+
+if __name__ == '__main__':
+    unittest.main()
+import unittest
+from todolistUI import add_task, view_all_tasks
+
+class AddTaskTestCase(unittest.TestCase):
+    def test_add_task(self):
+        # Test case 1: Adding a task with all optional parameters
+        task = "Buy groceries"
+        description = "Buy milk, eggs, and bread"
+        deadline = "2022-12-31"
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task, description, deadline), expected_output)
+
+        # Test case 2: Adding a task without optional parameters
+        task = "Clean the house"
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task), expected_output)
+
+        # Test case 3: Adding a task with empty task name
+        task = ""
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task), expected_output)
+
+        # Test case 4: Adding a task with empty description and deadline
+        task = "Walk the dog"
+        description = ""
+        deadline = ""
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task, description, deadline), expected_output)
+
+class ViewAllTasksTestCase(unittest.TestCase):
+    def test_view_all_tasks(self):
+        # Test case 1: Viewing all tasks when tasks exist
+        expected_output = "All tasks:\n1. Buy groceries - Not Completed\n   Description: Buy milk, eggs, and bread\n   Deadline: 2022-12-31\n2. Clean the house - Not Completed\n3. Walk the dog - Not Completed"
+        self.assertEqual(view_all_tasks(), expected_output)
+
+        # Test case 2: Viewing all tasks when no tasks exist
+        expected_output = "No tasks found."
+        self.assertEqual(view_all_tasks(), expected_output)
+
+if __name__ == '__main__':
+    unittest.main()
+import unittest
+from todolistUI import add_task, mark_task_as_complete
+
+class AddTaskTestCase(unittest.TestCase):
+    def test_add_task(self):
+        # Test case 1: Adding a task with all optional parameters
+        task = "Buy groceries"
+        description = "Buy milk, eggs, and bread"
+        deadline = "2022-12-31"
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task, description, deadline), expected_output)
+
+        # Test case 2: Adding a task without optional parameters
+        task = "Clean the house"
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task), expected_output)
+
+        # Test case 3: Adding a task with empty task name
+        task = ""
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task), expected_output)
+
+        # Test case 4: Adding a task with empty description and deadline
+        task = "Walk the dog"
+        description = ""
+        deadline = ""
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task, description, deadline), expected_output)
+
+class MarkTaskAsCompleteTestCase(unittest.TestCase):
+    def test_mark_task_as_complete(self):
+        # Test case 1: Marking a valid task as complete
+        # TODO: Implement the test case for marking a task as complete
+        pass
+
+        # Test case 2: Marking an invalid task as complete
+        # TODO: Implement the test case for marking an invalid task as complete
+        pass
+
+if __name__ == '__main__':
+    unittest.main()
+import unittest
+from todolistUI import add_task, delete_task
+
+class AddTaskTestCase(unittest.TestCase):
+    def test_add_task(self):
+        # Test case 1: Adding a task with all optional parameters
+        task = "Buy groceries"
+        description = "Buy milk, eggs, and bread"
+        deadline = "2022-12-31"
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task, description, deadline), expected_output)
+
+        # Test case 2: Adding a task without optional parameters
+        task = "Clean the house"
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task), expected_output)
+
+        # Test case 3: Adding a task with empty task name
+        task = ""
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task), expected_output)
+
+        # Test case 4: Adding a task with empty description and deadline
+        task = "Walk the dog"
+        description = ""
+        deadline = ""
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task, description, deadline), expected_output)
+
+class DeleteTaskTestCase(unittest.TestCase):
+    def test_delete_task(self):
+        # Test case 1: Deleting a valid task
+        task_number = 1
+        expected_output = "Task deleted successfully."
+        self.assertEqual(delete_task(task_number), expected_output)
+
+        # Test case 2: Deleting an invalid task
+        task_number = 10
+        expected_output = "Invalid task number."
+        self.assertEqual(delete_task(task_number), expected_output)
+
+if __name__ == '__main__':
+    unittest.main()
+import unittest
+from todolistUI import add_task, get_valid_task_number
+
+class AddTaskTestCase(unittest.TestCase):
+    def test_add_task(self):
+        # Test case 1: Adding a task with all optional parameters
+        task = "Buy groceries"
+        description = "Buy milk, eggs, and bread"
+        deadline = "2022-12-31"
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task, description, deadline), expected_output)
+
+        # Test case 2: Adding a task without optional parameters
+        task = "Clean the house"
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task), expected_output)
+
+        # Test case 3: Adding a task with empty task name
+        task = ""
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task), expected_output)
+
+        # Test case 4: Adding a task with empty description and deadline
+        task = "Walk the dog"
+        description = ""
+        deadline = ""
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task, description, deadline), expected_output)
+
+class GetValidTaskNumberTestCase(unittest.TestCase):
+    def test_get_valid_task_number(self):
+        # Test case 1: Valid task number
+        prompt = "Enter task number: "
+        user_input = "5"
+        expected_output = 5
+        with unittest.mock.patch('builtins.input', return_value=user_input):
+            self.assertEqual(get_valid_task_number(prompt), expected_output)
+
+        # Test case 2: Invalid task number (negative)
+        prompt = "Enter task number: "
+        user_input = "-3"
+        expected_output = "Invalid task number. Please enter a positive integer."
+        with unittest.mock.patch('builtins.input', return_value=user_input):
+            with unittest.mock.patch('builtins.print') as mock_print:
+                self.assertEqual(get_valid_task_number(prompt), None)
+                mock_print.assert_called_with(expected_output)
+
+        # Test case 3: Invalid task number (non-integer)
+        prompt = "Enter task number: "
+        user_input = "abc"
+        expected_output = "Invalid input. Please enter a valid task number."
+        with unittest.mock.patch('builtins.input', return_value=user_input):
+            with unittest.mock.patch('builtins.print') as mock_print:
+                self.assertEqual(get_valid_task_number(prompt), None)
+                mock_print.assert_called_with(expected_output)
+
+from unittest.mock import patch
+from io import StringIO
+from todolistUI import add_task, view_all_tasks, mark_task_as_complete, delete_task, todo
+
+class AddTaskTestCase(unittest.TestCase):
+    def test_add_task(self):
+        # Test case 1: Adding a task with all optional parameters
+        task = "Buy groceries"
+        description = "Buy milk, eggs, and bread"
+        deadline = "2022-12-31"
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task, description, deadline), expected_output)
+
+        # Test case 2: Adding a task without optional parameters
+        task = "Clean the house"
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task), expected_output)
+
+        # Test case 3: Adding a task with empty task name
+        task = ""
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task), expected_output)
+
+        # Test case 4: Adding a task with empty description and deadline
+        task = "Walk the dog"
+        description = ""
+        deadline = ""
+        expected_output = "Task added successfully."
+        self.assertEqual(add_task(task, description, deadline), expected_output)
+
+    def test_view_all_tasks(self):
+        # Test case 1: Viewing all tasks when there are tasks
+        tasks = ["Buy groceries", "Clean the house", "Walk the dog"]
+        expected_output = "\n".join(tasks)
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            view_all_tasks(tasks)
+            self.assertEqual(fake_out.getvalue().strip(), expected_output)
+
+        # Test case 2: Viewing all tasks when there are no tasks
+        tasks = []
+        expected_output = "No tasks found."
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            view_all_tasks(tasks)
+            self.assertEqual(fake_out.getvalue().strip(), expected_output)
+
+    def test_mark_task_as_complete(self):
+        # Test case 1: Marking a task as complete
+        task = "Buy groceries"
+        tasks = ["Buy groceries", "Clean the house", "Walk the dog"]
+        expected_output = "Task marked as complete."
+        self.assertEqual(mark_task_as_complete(task, tasks), expected_output)
+
+        # Test case 2: Marking a task as complete that does not exist
+        task = "Do laundry"
+        tasks = ["Buy groceries", "Clean the house", "Walk the dog"]
+        expected_output = "Task not found."
+        self.assertEqual(mark_task_as_complete(task, tasks), expected_output)
+
+    def test_delete_task(self):
+        # Test case 1: Deleting a task
+        task = "Buy groceries"
+        tasks = ["Buy groceries", "Clean the house", "Walk the dog"]
+        expected_output = "Task deleted successfully."
+        self.assertEqual(delete_task(task, tasks), expected_output)
+
+        # Test case 2: Deleting a task that does not exist
+        task = "Do laundry"
+        tasks = ["Buy groceries", "Clean the house", "Walk the dog"]
+        expected_output = "Task not found."
+        self.assertEqual(delete_task(task, tasks), expected_output)
+
+    @patch('builtins.input', side_effect=["1", "5"])
+    def test_todo(self, mock_input):
+        # Test case 1: Choosing option 1 and then option 5 to exit
+        expected_output = "Choose an option:\n1. Add a task\n2. View all tasks\n3. Mark task as complete\n4. Delete a task\n5. Exit\nEnter your choice: "
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            todo()
+            self.assertEqual(fake_out.getvalue(), expected_output)
+
+        # Test case 2: Choosing an invalid option and then option 5 to exit
+        expected_output = "Choose an option:\n1. Add a task\n2. View all tasks\n3. Mark task as complete\n4. Delete a task\n5. Exit\nEnter your choice: Invalid choice. Please enter a number between 1 and 5."
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            todo()
+            self.assertEqual(fake_out.getvalue(), expected_output)
