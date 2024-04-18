@@ -1,5 +1,3 @@
-# math_tests.py
-
 import random
 import time
 import json

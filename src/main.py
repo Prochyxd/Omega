@@ -4,7 +4,6 @@ import math_testsUI
 import math_testsGUI
 import todolistUI
 
-
 def choose_math_tests_interface():
     print("Welcome to Math Tests!")
     print("Choose the interface you want to use:")

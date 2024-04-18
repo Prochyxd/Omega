@@ -1,8 +1,6 @@
-# math_testsUI.py
-
 import json
 import time
-import math_tests
+import math_tests as math_tests_module
 
 def math_tests():
     print("Welcome to Math Tests!")
@@ -11,17 +9,17 @@ def math_tests():
     name = input("Enter name: ")
     print(f"Hello, {name}!")
 
-    problems = math_tests.load_problems()
-    category = math_tests.choose_problems(problems)
-    difficulty = math_tests.choose_difficulty(category)
-    problems = [math_tests.get_problem(difficulty) for _ in range(10)]
+    problems = math_tests_module.load_problems()
+    category = math_tests_module.choose_problems(problems)
+    difficulty = math_tests_module.choose_difficulty(category)
+    problems = [math_tests_module.get_problem(difficulty) for _ in range(10)]
     start_time = time.time()
-    score = math_tests.get_score(problems)
+    score = math_tests_module.get_score(problems)
     end_time = time.time()
     time_taken = end_time - start_time
     print(f"Score: {score}")
     print(f"Time taken: {time_taken:.2f} seconds")
-    math_tests.save_score(name, score, time_taken)
+    math_tests_module.save_score(name, score, time_taken)
     print("Leaderboard:")
     with open("files/math_problems_leaderboard.json", "r", encoding="utf-8") as file:
         leaderboard = json.load(file)
