@@ -3,6 +3,7 @@ from log_manager import LogManager
 import math_testsUI
 import math_testsGUI
 import todolistUI
+import gui
 
 def choose_math_tests_interface():
     print("Welcome to Math Tests!")
@@ -32,6 +33,19 @@ def run_ToDo_console_ui():
 def run_ToDo_gui():
     import todolistGUI
 
+def choose_compression_interface():
+    print("Choose the interface you want to use for Compression:")
+    print("1. Console UI")
+    print("2. GUI")
+    CompressionUIchoice = input("Enter your choice (1 or 2): ")
+    return CompressionUIchoice
+
+def run_compression_console_ui():
+    compression()
+
+def run_compression_gui():
+    gui.run_compression_gui()
+
 if __name__ == "__main__":
     print("Choose the program to run:")
     print("1. Math Tests - You can test your math skills with this program. You will be given a series of math questions you choose to solve and gain score.")
@@ -51,8 +65,16 @@ if __name__ == "__main__":
         else:
             print("Invalid choice. Please enter 1 or 2.")
     elif choice == "2":
-        compression()
         LogManager.log_activity("Compression program opened", "Compression")
+        CompressionUIchoice = choose_compression_interface()
+        if CompressionUIchoice == "1":
+            LogManager.log_activity("Console UI for Compression opened", "Compression")
+            run_compression_console_ui()
+        elif CompressionUIchoice == "2":
+            LogManager.log_activity("GUI for Compression opened", "Compression")
+            run_compression_gui()
+        else:
+            print("Invalid choice. Please enter 1 or 2.")
     elif choice == "3":
         LogManager.log_activity("To-Do List started", "To-Do List")
         ToDoUIchoice = choose_ToDo_interface()
@@ -66,10 +88,3 @@ if __name__ == "__main__":
             print("Invalid choice. Please enter 1 or 2.")
     else:
         print("Invalid choice.")
-
-    # Print the log
-    print("-------------------------------------------------------------------------------------------")
-    print("Do you want to print the log? (yes/no): ")
-    print_log = input()
-    if print_log.lower() == "yes":
-        LogManager.print_log()

@@ -1,0 +1,2 @@
+2024-04-18 12:25:01 - Compression program opened: Compression
+2024-04-18 12:25:04 - GUI for Compression opened: Compression
