@@ -4,9 +4,8 @@ import math_tests as math_tests_module
 
 def math_tests():
     print("Welcome to Math Tests!")
-    print("(Little advice: For harder math problems i reccoment to copy and paste one of given choises (this progam is not case sensitive))")
-    print("Enter your name that will be used for the leaderboard:")
-    name = input("Enter name: ")
+    print("(Little advice: For harder math problems I recommend copying and pasting one of the given choices (this program is not case sensitive))")
+    name = input("Enter your name that will be used for the leaderboard: ")
     print(f"Hello, {name}!")
 
     problems = math_tests_module.load_problems()
@@ -21,7 +20,14 @@ def math_tests():
     print(f"Time taken: {time_taken:.2f} seconds")
     math_tests_module.save_score(name, score, time_taken)
     print("Leaderboard:")
-    with open("files/math_problems_leaderboard.json", "r", encoding="utf-8") as file:
-        leaderboard = json.load(file)
-    for i, player in enumerate(leaderboard):
-        print(f"{i + 1}. {player['name']} - {player['score']} - {player['time_taken']:.2f} seconds")
+    try:
+        with open("files/math_problems_leaderboard.json", "r", encoding="utf-8") as file:
+            leaderboard = json.load(file)
+        for i, player in enumerate(leaderboard):
+            print(f"{i + 1}. {player['name']} - {player['score']} - {player['time_taken']:.2f} seconds")
+    except FileNotFoundError:
+        print("Leaderboard file not found.")
+    except json.JSONDecodeError:
+        print("Error decoding leaderboard file.")
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")

@@ -30,8 +30,9 @@ class MathTestsGUI:
         self.answer_entry = None
 
     def start_tests(self):
-        name = self.name_entry.get()
-        if name.strip() == "":
+        name = self.name_entry.get().strip()
+        if not name:
+            tk.messagebox.showerror("Error", "Please enter your name.")
             return
 
         self.player_name = name  # Save the name
@@ -114,8 +115,12 @@ class MathTestsGUI:
         self.submit_button.pack()
 
     def check_answer(self):
-        user_answer = self.answer_entry.get()
+        user_answer = self.answer_entry.get().strip()
         problem = self.problems[self.category_var.get()][self.difficulty_var.get()][self.current_problem_index]
+
+        if not user_answer:
+            tk.messagebox.showerror("Error", "Please enter your answer.")
+            return
 
         if user_answer == problem["answer"]:
             self.score_var.set(int(self.score_var.get()) + 1)

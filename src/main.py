@@ -1,17 +1,24 @@
-from compression import compression
 from log_manager import LogManager
+from compressionUI import compression
+from compressionGUI import run_compression_gui
 import math_testsUI
 import math_testsGUI
 import todolistUI
-import gui
 
 def choose_math_tests_interface():
     print("Welcome to Math Tests!")
     print("Choose the interface you want to use:")
     print("1. Console UI")
     print("2. GUI")
-    MathTestsUIchoice = input("Enter your choice (1 or 2): ")
-    return MathTestsUIchoice
+    while True:
+        try:
+            MathTestsUIchoice = int(input("Enter your choice (1 or 2): "))
+            if MathTestsUIchoice in [1, 2]:
+                return MathTestsUIchoice
+            else:
+                print("Invalid choice. Please enter 1 or 2.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
 def run_math_tests_console_ui():
     math_testsUI.math_tests()
@@ -24,8 +31,15 @@ def choose_ToDo_interface():
     print("Choose the interface you want to use:")
     print("1. Console UI")
     print("2. GUI")
-    ToDoUIchoice = input("Enter your choice (1 or 2): ")
-    return ToDoUIchoice
+    while True:
+        try:
+            ToDoUIchoice = int(input("Enter your choice (1 or 2): "))
+            if ToDoUIchoice in [1, 2]:
+                return ToDoUIchoice
+            else:
+                print("Invalid choice. Please enter 1 or 2.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
 def run_ToDo_console_ui():
     todolistUI.todo()
@@ -34,17 +48,23 @@ def run_ToDo_gui():
     import todolistGUI
 
 def choose_compression_interface():
-    print("Choose the interface you want to use for Compression:")
+    print("Welcome to the Compression Tool!")
+    print("Choose the interface you want to use:")
     print("1. Console UI")
     print("2. GUI")
-    CompressionUIchoice = input("Enter your choice (1 or 2): ")
-    return CompressionUIchoice
+    while True:
+        try:
+            CompressionUIchoice = int(input("Enter your choice (1 or 2): "))
+            if CompressionUIchoice in [1, 2]:
+                return CompressionUIchoice
+            else:
+                print("Invalid choice. Please enter 1 or 2.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
 def run_compression_console_ui():
     compression()
 
-def run_compression_gui():
-    gui.run_compression_gui()
 
 if __name__ == "__main__":
     print("Choose the program to run:")
@@ -52,39 +72,62 @@ if __name__ == "__main__":
     print("2. Compression of a text file - You can compress a text file by replacing words with abbreviations.")
     print("3. To-Do List - You can manage your tasks with this program.")
 
-    choice = input("Enter the number of the program you want to run: ")
-    if choice == "1":
+    while True:
+        try:
+            choice = int(input("Enter the number of the program you want to run: "))
+            if choice in [1, 2, 3]:
+                break
+            else:
+                print("Invalid choice. Please enter a number between 1 and 3.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+    if choice == 1:
         LogManager.log_activity("Math Tests opened", "Math Tests")
         MathTestsUIchoice = choose_math_tests_interface()
-        if MathTestsUIchoice == "1":
+        if MathTestsUIchoice == 1:
             LogManager.log_activity("Console UI for Math Tests opened", "Math Tests")
             run_math_tests_console_ui()
-        elif MathTestsUIchoice == "2":
+        elif MathTestsUIchoice == 2:
             LogManager.log_activity("GUI for Math Tests opened", "Math Tests")
             run_math_tests_gui()
-        else:
-            print("Invalid choice. Please enter 1 or 2.")
-    elif choice == "2":
+    elif choice == 2:
         LogManager.log_activity("Compression program opened", "Compression")
         CompressionUIchoice = choose_compression_interface()
-        if CompressionUIchoice == "1":
+        if CompressionUIchoice == 1:
             LogManager.log_activity("Console UI for Compression opened", "Compression")
             run_compression_console_ui()
-        elif CompressionUIchoice == "2":
+        elif CompressionUIchoice == 2:
             LogManager.log_activity("GUI for Compression opened", "Compression")
             run_compression_gui()
-        else:
-            print("Invalid choice. Please enter 1 or 2.")
-    elif choice == "3":
+    elif choice == 3:
         LogManager.log_activity("To-Do List started", "To-Do List")
         ToDoUIchoice = choose_ToDo_interface()
-        if ToDoUIchoice == "1":
+        if ToDoUIchoice == 1:
             LogManager.log_activity("Console UI for ToDo list opened", "To-Do List")
             run_ToDo_console_ui()
-        elif ToDoUIchoice == "2":
+        elif ToDoUIchoice == 2:
             LogManager.log_activity("GUI for ToDo list opened", "To-Do List")
             run_ToDo_gui()
-        else:
-            print("Invalid choice. Please enter 1 or 2.")
     else:
         print("Invalid choice.")
+
+print("Do you want to print the log?")
+print("1. Yes")
+print("2. No")
+while True:
+    try:
+        print_log = int(input("Enter your choice: "))
+        if print_log in [1, 2]:
+            break
+        else:
+            print("Invalid choice. Please enter 1 or 2.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+if print_log == 1:
+    print("The log file has been printed.")
+    LogManager.print_log()
+else:
+    print("The log file has not been printed.")
+    

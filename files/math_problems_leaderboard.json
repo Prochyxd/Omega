@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "name": "matikatestCUI",
+        "score": 10,
+        "time_taken": 25.249650239944458
+    },
+    {
+        "name": "matikatestGUI",
+        "score": 9,
+        "time_taken": 41.42948842048645
+    }
+]

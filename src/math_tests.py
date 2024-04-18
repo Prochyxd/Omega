@@ -13,31 +13,41 @@ def choose_problems(problems):
     print("2. Multiplication and Division")
     print("3. Quadratic Equations")
     print("4. Other")
-    choice = input("Enter choice: ")
-    if choice == "1":
+    while True:
+        try:
+            choice = int(input("Enter choice: "))
+            if choice in range(1, 5):
+                break
+            else:
+                print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+    if choice == 1:
         return problems["addition_subtraction"]
-    elif choice == "2":
+    elif choice == 2:
         return problems["multiplication_division"]
-    elif choice == "3":
+    elif choice == 3:
         return problems["quadratic_equations"]
-    elif choice == "4":
+    elif choice == 4:
         return problems["other"]
-    else:
-        print("Invalid choice. Please try again.")
-        return choose_problems(problems)
     
 def choose_difficulty(problems):
     print("Choose a difficulty:")
     print("1. Easy")
     print("2. Hard")
-    choice = input("Enter choice: ")
-    if choice == "1":
+    while True:
+        try:
+            choice = int(input("Enter choice: "))
+            if choice in range(1, 3):
+                break
+            else:
+                print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+    if choice == 1:
         return problems["easy"]
-    elif choice == "2":
+    elif choice == 2:
         return problems["hard"]
-    else:
-        print("Invalid choice. Please try again.")
-        return choose_difficulty(problems)
     
 def get_problem(problems):
     problem = random.choice(problems)
@@ -50,7 +60,12 @@ def get_score(problems):
         print("Math problem: " + problem["problem"])
         for i, choice in enumerate(problem["choices"]):
             print(f"{i + 1}. {choice}")
-        answer = input("Enter answer (the number you calculated): ")
+        while True:
+            try:
+                answer = int(input("Enter answer (the number you calculated): "))
+                break
+            except ValueError:
+                print("Invalid input. Please enter a number.")
         if answer == problem["answer"]:
             score += 1
     return score

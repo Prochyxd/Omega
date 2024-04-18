@@ -1,8 +1,9 @@
-# todolist.py
-
 import json
 import os
 from log_manager import LogManager
+
+# todolist.py
+
 
 def load_data():
     if os.path.exists("files/tododata.json"):
@@ -16,7 +17,11 @@ def save_data(data):
     with open("files/tododata.json", "w") as file:
         json.dump(data, file)
 
-def add_task(task, description="", deadline=""):
+def add_task():
+    task = input("Enter task: ")
+    description = input("Enter description: ")
+    deadline = input("Enter deadline: ")
+    
     data = load_data()
     data.append({"task": task, "description": description, "deadline": deadline, "completed": False})
     save_data(data)
@@ -26,22 +31,32 @@ def view_all_tasks():
     data = load_data()
     return data
 
-def mark_task_as_complete(task_number):
-    data = load_data()
-    if 1 <= task_number <= len(data):
-        data[task_number - 1]["completed"] = True
-        save_data(data)
-        LogManager.log_activity("Task Marked as Complete", f"Task number: {task_number}")
-        return True
-    else:
+def mark_task_as_complete():
+    task_number = input("Enter task number: ")
+    try:
+        task_number = int(task_number)
+        data = load_data()
+        if 1 <= task_number <= len(data):
+            data[task_number - 1]["completed"] = True
+            save_data(data)
+            LogManager.log_activity("Task Marked as Complete", f"Task number: {task_number}")
+            return True
+        else:
+            return False
+    except ValueError:
         return False
 
-def delete_task(task_number):
-    data = load_data()
-    if 1 <= task_number <= len(data):
-        del data[task_number - 1]
-        save_data(data)
-        LogManager.log_activity("Task Deleted", f"Task number: {task_number}")
-        return True
-    else:
+def delete_task():
+    task_number = input("Enter task number: ")
+    try:
+        task_number = int(task_number)
+        data = load_data()
+        if 1 <= task_number <= len(data):
+            del data[task_number - 1]
+            save_data(data)
+            LogManager.log_activity("Task Deleted", f"Task number: {task_number}")
+            return True
+        else:
+            return False
+    except ValueError:
         return False

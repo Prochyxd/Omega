@@ -1,15 +1,18 @@
-# todolistGUI.py
-
 import tkinter as tk
 import todolist
+
+# todolistGUI.py
 
 def add_task():
     task = task_entry.get()
     description = description_entry.get()
     deadline = deadline_entry.get()
     
-    todolist.add_task(task, description, deadline)
-    result_label.config(text="Task added successfully.")
+    if task and deadline:
+        todolist.add_task(task, description, deadline)
+        result_label.config(text="Task added successfully.")
+    else:
+        result_label.config(text="Please enter a task and deadline.")
 
 def view_all_tasks():
     tasks_text.delete("1.0", tk.END)
@@ -29,18 +32,24 @@ def view_all_tasks():
         tasks_text.insert(tk.END, "No tasks found.")
 
 def mark_task_as_complete():
-    task_number = int(mark_task_entry.get())
-    if todolist.mark_task_as_complete(task_number):
-        result_label.config(text="Task marked as complete.")
-    else:
-        result_label.config(text="Invalid task number.")
+    try:
+        task_number = int(mark_task_entry.get())
+        if todolist.mark_task_as_complete(task_number):
+            result_label.config(text="Task marked as complete.")
+        else:
+            result_label.config(text="Invalid task number.")
+    except ValueError:
+        result_label.config(text="Please enter a valid task number.")
 
 def delete_task():
-    task_number = int(delete_task_entry.get())
-    if todolist.delete_task(task_number):
-        result_label.config(text="Task deleted successfully.")
-    else:
-        result_label.config(text="Invalid task number.")
+    try:
+        task_number = int(delete_task_entry.get())
+        if todolist.delete_task(task_number):
+            result_label.config(text="Task deleted successfully.")
+        else:
+            result_label.config(text="Invalid task number.")
+    except ValueError:
+        result_label.config(text="Please enter a valid task number.")
 
 root = tk.Tk()
 root.title("To-Do List")
