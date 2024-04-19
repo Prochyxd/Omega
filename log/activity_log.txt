@@ -60,3 +60,5 @@ Whiskers: ppppppppppppopop
 2024-04-18 18:13:56 - Task Deleted: Task number: 2
 2024-04-18 18:20:10 - Task Added: Task: 1, Description: , Deadline: 
 2024-04-18 18:25:19 - Task Added: Task: Task 1, Description: Description 1, Deadline: Deadline 1
+2024-04-19 08:41:19 - Task Added: Task: Test Task 3, Description: Test Description 3, Deadline: 2024-04-22
+2024-04-19 08:44:30 - Task Deleted: Task number: 1

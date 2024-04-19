@@ -23,14 +23,14 @@ class TestTodoList(unittest.TestCase):
             json.dump([{"task": "Test Task", "description": "Test Description", "deadline": "Test Deadline", "completed": False}], file)
 
         # Load data from the test data file
-        data = load_data(self.test_data_file)
+        data = load_data()
 
         # Check if data is loaded correctly
         self.assertEqual(data, [{"task": "Test Task", "description": "Test Description", "deadline": "Test Deadline", "completed": False}])
 
     def test_load_data_non_existing_file(self):
         # Load data from a non-existing test data file
-        data = load_data(self.test_data_file)
+        data = load_data()
 
         # Check if empty list is returned
         self.assertEqual(data, [])
@@ -38,7 +38,7 @@ class TestTodoList(unittest.TestCase):
     def test_save_data(self):
         # Test saving data to the test data file
         test_data = [{"task": "Test Task", "description": "Test Description", "deadline": "Test Deadline", "completed": False}]
-        save_data(test_data, self.test_data_file)
+        save_data(test_data)
 
         # Load saved data from the test data file
         with open(self.test_data_file, "r") as file:
@@ -50,7 +50,7 @@ class TestTodoList(unittest.TestCase):
     @patch('builtins.input', side_effect=["Test Task", "Test Description", "Test Deadline"])
     def test_add_task(self, mock_input):
         # Test adding a task with mocked input
-        add_task(self.test_data_file)
+        add_task()
 
         # Load data from the test data file
         with open(self.test_data_file, "r") as file:
@@ -65,7 +65,7 @@ class TestTodoList(unittest.TestCase):
             json.dump([{"task": "Test Task", "description": "Test Description", "deadline": "Test Deadline", "completed": False}], file)
 
         # Test viewing all tasks
-        tasks = view_all_tasks(self.test_data_file)
+        tasks = view_all_tasks()
 
         # Check if tasks are viewed correctly
         self.assertEqual(tasks, [{"task": "Test Task", "description": "Test Description", "deadline": "Test Deadline", "completed": False}])
@@ -77,7 +77,7 @@ class TestTodoList(unittest.TestCase):
             json.dump([{"task": "Test Task", "description": "Test Description", "deadline": "Test Deadline", "completed": False}], file)
 
         # Test marking a task as complete with mocked input
-        mark_task_as_complete(self.test_data_file)
+        mark_task_as_complete()
 
         # Load data from the test data file
         with open(self.test_data_file, "r") as file:
@@ -93,7 +93,7 @@ class TestTodoList(unittest.TestCase):
             json.dump([{"task": "Test Task", "description": "Test Description", "deadline": "Test Deadline", "completed": False}], file)
 
         # Test deleting a task with mocked input
-        delete_task(self.test_data_file)
+        delete_task()
 
         # Load data from the test data file
         with open(self.test_data_file, "r") as file:
@@ -101,6 +101,6 @@ class TestTodoList(unittest.TestCase):
 
         # Check if task is deleted correctly
         self.assertEqual(data, [])
-        
+
 if __name__ == '__main__':
     unittest.main()

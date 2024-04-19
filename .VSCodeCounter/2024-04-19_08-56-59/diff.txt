@@ -1,0 +1,38 @@
+Date : 2024-04-19 08:56:59
+Directory : c:\Users\adamo\Documents\GitHub\Omega\src
+Total : 12 files,  266 codes, 48 comments, 89 blanks, all 403 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Python   |         12 |        266 |         48 |         89 |        403 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                       | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                          |         12 |        266 |         48 |         89 |        403 |
+| . (Files)                                                                  |          1 |          5 |          0 |          0 |          5 |
+| tests                                                                      |         11 |        261 |         48 |         89 |        398 |
++----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                   | language | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_algorithms.py         | Python   |         32 |          0 |          8 |         40 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_compressionGUI.py     | Python   |         79 |          0 |         11 |         90 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_compressionUI.py      | Python   |         53 |         12 |         15 |         80 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_frequency_analyzer.py | Python   |         24 |          6 |          7 |         37 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_log_manager.py        | Python   |         28 |          3 |          8 |         39 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_math_tests.py         | Python   |         36 |          0 |          5 |         41 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_math_testsGUI.py      | Python   |         58 |          0 |         10 |         68 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_math_testsUI.py       | Python   |         57 |          0 |          4 |         61 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_todolist.py           | Python   |        -53 |         13 |         11 |        -29 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_todolistGUI.py        | Python   |        -33 |         12 |          9 |        -12 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_todolistUI.py         | Python   |        -20 |          2 |          1 |        -17 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\todolist.py                      | Python   |          5 |          0 |          0 |          5 |
+| Total                                                                      |          |        266 |         48 |         89 |        403 |
++----------------------------------------------------------------------------+----------+------------+------------+------------+------------+
