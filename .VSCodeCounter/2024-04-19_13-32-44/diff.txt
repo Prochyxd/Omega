@@ -1,0 +1,37 @@
+Date : 2024-04-19 13:32:44
+Directory : c:\Users\adamo\Documents\GitHub\Omega\src\tests
+Total : 12 files,  -793 codes, -25 comments, -172 blanks, all -990 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Python   |         12 |       -793 |        -25 |       -172 |       -990 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                            | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                               |         12 |       -793 |        -25 |       -172 |       -990 |
+| ..                                                              |         12 |       -793 |        -25 |       -172 |       -990 |
++-----------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                        | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\adamo\Documents\GitHub\Omega\src\algorithms.py         | Python   |        -13 |         -1 |         -5 |        -19 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\compressionGUI.py     | Python   |       -112 |         -4 |        -32 |       -148 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\compressionUI.py      | Python   |        -89 |        -10 |        -20 |       -119 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\frequency_analyzer.py | Python   |        -11 |         -1 |         -6 |        -18 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\log_manager.py        | Python   |        -26 |          0 |         -4 |        -30 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\main.py               | Python   |       -118 |          0 |        -15 |       -133 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\math_tests.py         | Python   |        -73 |          0 |         -7 |        -80 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\math_testsGUI.py      | Python   |       -115 |         -2 |        -43 |       -160 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\math_testsUI.py       | Python   |        -31 |          0 |         -3 |        -34 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\todolist.py           | Python   |        -57 |         -1 |        -10 |        -68 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\todolistGUI.py        | Python   |        -83 |         -5 |        -18 |       -106 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\todolistUI.py         | Python   |        -65 |         -1 |         -9 |        -75 |
+| Total                                                           |          |       -793 |        -25 |       -172 |       -990 |
++-----------------------------------------------------------------+----------+------------+------------+------------+------------+

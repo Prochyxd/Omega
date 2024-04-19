@@ -62,3 +62,39 @@ Whiskers: ppppppppppppopop
 2024-04-18 18:25:19 - Task Added: Task: Task 1, Description: Description 1, Deadline: Deadline 1
 2024-04-19 08:41:19 - Task Added: Task: Test Task 3, Description: Test Description 3, Deadline: 2024-04-22
 2024-04-19 08:44:30 - Task Deleted: Task number: 1
+2024-04-19 13:25:24 - To-Do List started: To-Do List
+2024-04-19 13:25:25 - GUI for ToDo list opened: To-Do List
+2024-04-19 13:25:46 - To-Do List started: To-Do List
+2024-04-19 13:25:46 - GUI for ToDo list opened: To-Do List
+2024-04-19 13:25:59 - Task Added: Task: Kukelka, Description: to je zrmd, Deadline: ted
+2024-04-19 13:27:41 - To-Do List started: To-Do List
+2024-04-19 13:27:42 - GUI for ToDo list opened: To-Do List
+2024-04-19 13:27:50 - Task Added: Task: prd, Description: prdkyp, Deadline: prd
+2024-04-19 13:28:42 - To-Do List started: To-Do List
+2024-04-19 13:28:43 - GUI for ToDo list opened: To-Do List
+2024-04-19 13:29:54 - To-Do List started: To-Do List
+2024-04-19 13:29:54 - GUI for ToDo list opened: To-Do List
+2024-04-19 13:30:48 - To-Do List started: To-Do List
+2024-04-19 13:30:48 - GUI for ToDo list opened: To-Do List
+2024-04-19 13:31:26 - To-Do List started: To-Do List
+2024-04-19 13:31:27 - GUI for ToDo list opened: To-Do List
+2024-04-19 13:33:09 - To-Do List started: To-Do List
+2024-04-19 13:33:09 - GUI for ToDo list opened: To-Do List
+2024-04-19 13:34:48 - To-Do List started: To-Do List
+2024-04-19 13:34:48 - GUI for ToDo list opened: To-Do List
+2024-04-19 13:34:52 - Task Marked as Complete: Task number: 1
+2024-04-19 13:35:33 - To-Do List started: To-Do List
+2024-04-19 13:35:33 - GUI for ToDo list opened: To-Do List
+2024-04-19 13:35:40 - Task Deleted: Task number: 1
+2024-04-19 13:35:50 - Task Added: Task: karel, Description: fdsg, Deadline: hgfdhgfd
+2024-04-19 13:36:08 - Math Tests opened: Math Tests
+2024-04-19 13:36:09 - Console UI for Math Tests opened: Math Tests
+2024-04-19 13:37:00 - Math Tests opened: Math Tests
+2024-04-19 13:37:01 - GUI for Math Tests opened: Math Tests
+2024-04-19 13:37:44 - Compression program opened: Compression
+2024-04-19 13:37:45 - GUI for Compression opened: Compression
+2024-04-19 13:37:57 - To-Do List started: To-Do List
+2024-04-19 13:37:59 - Console UI for ToDo list opened: To-Do List
+2024-04-19 13:38:03 - Task Added: Task: fdg, Description: gfdgdf, Deadline: gfdgdf
+2024-04-19 13:38:08 - Task Marked as Complete: Task number: 2
+2024-04-19 13:38:18 - Task Deleted: Task number: 2

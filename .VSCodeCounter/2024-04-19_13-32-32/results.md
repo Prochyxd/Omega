@@ -1,21 +1,23 @@
 # Summary
 
-Date : 2024-04-18 18:17:19
+Date : 2024-04-19 13:32:32
 
-Directory c:\\Users\\adamo\\Documents\\GitHub\\Omega\\src\\tests
+Directory c:\\Users\\adamo\\Documents\\GitHub\\Omega\\src
 
-Total : 3 files,  255 codes, 23 comments, 40 blanks, all 318 lines
+Total : 23 files,  1309 codes, 96 comments, 301 blanks, all 1706 lines
 
 Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| Python | 3 | 255 | 23 | 40 | 318 |
+| Python | 23 | 1,309 | 96 | 301 | 1,706 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 3 | 255 | 23 | 40 | 318 |
+| . | 23 | 1,309 | 96 | 301 | 1,706 |
+| . (Files) | 12 | 793 | 25 | 172 | 990 |
+| tests | 11 | 516 | 71 | 129 | 716 |
 
 Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-details.md)

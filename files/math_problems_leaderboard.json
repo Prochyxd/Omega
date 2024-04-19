@@ -8,5 +8,15 @@
         "name": "matikatestGUI",
         "score": 9,
         "time_taken": 41.42948842048645
+    },
+    {
+        "name": "PetrOmega",
+        "score": 2,
+        "time_taken": 22.8442120552063
+    },
+    {
+        "name": "testOmega",
+        "score": 0,
+        "time_taken": 15.542722225189209
     }
 ]

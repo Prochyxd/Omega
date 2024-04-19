@@ -16,16 +16,6 @@ def save_data(data):
     with open("files/tododata.json", "w") as file:
         json.dump(data, file)
 
-def add_task():
-    task = input("Enter task: ")
-    description = input("Enter description: ")
-    deadline = input("Enter deadline: ")
-    
-    data = load_data()
-    data.append({"task": task, "description": description, "deadline": deadline, "completed": False})
-    save_data(data)
-    LogManager.log_activity("Task Added", f"Task: {task}, Description: {description}, Deadline: {deadline}")
-
 def add_task(task, description, deadline):
     data = load_data()
     data.append({"task": task, "description": description, "deadline": deadline, "completed": False})
@@ -36,8 +26,7 @@ def view_all_tasks():
     data = load_data()
     return data
 
-def mark_task_as_complete():
-    task_number = input("Enter task number: ")
+def mark_task_as_complete(task_number):
     try:
         task_number = int(task_number)
         data = load_data()
@@ -50,9 +39,7 @@ def mark_task_as_complete():
             return False
     except ValueError:
         return False
-
-def delete_task():
-    task_number = input("Enter task number: ")
+def delete_task(task_number):
     try:
         task_number = int(task_number)
         data = load_data()
