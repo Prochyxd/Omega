@@ -2,7 +2,6 @@ import todolist
 
 # todolistUI.py
 
-
 def add_task():
     task = input("Enter the task: ")
     description = input("Enter the task description (optional): ")

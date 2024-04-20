@@ -1,11 +1,12 @@
 from log_manager import LogManager
+from log_managerGUI import run_log_manager_gui
 from compressionUI import compression
 from compressionGUI import run_compression_gui
 import math_testsUI
 import math_testsGUI
 import todolistUI
-from auth.authUI import run_auth_ui
-from auth.authGUI import run_auth_gui
+from authUI import run_auth_ui
+from authGUI import run_auth_gui
 
 
 def choose_math_tests_interface():
@@ -152,8 +153,23 @@ while True:
         print("Invalid input. Please enter a number.")
 
 if print_log == 1:
-    print("The log file has been printed.")
-    LogManager.print_log()
+    print("Do you want to print log into console or in GUI?")
+    print("1. Console")
+    print("2. GUI")
+    while True:
+        try:
+            print_log_choice = int(input("Enter your choice: "))
+            if print_log_choice in [1, 2]:
+                break
+            else:
+                print("Invalid choice. Please enter 1 or 2.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+    if print_log_choice == 1:
+        LogManager.print_log()
+    elif print_log_choice == 2:
+        run_log_manager_gui()
 else:
     print("The log file has not been printed.")
     
