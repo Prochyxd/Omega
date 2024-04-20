@@ -4,6 +4,9 @@ from compressionGUI import run_compression_gui
 import math_testsUI
 import math_testsGUI
 import todolistUI
+from auth.authUI import run_auth_ui
+from auth.authGUI import run_auth_gui
+
 
 def choose_math_tests_interface():
     print("Welcome to Math Tests!")
@@ -67,6 +70,29 @@ def run_compression_console_ui():
 
 
 if __name__ == "__main__":
+    print("Welcome to the program!")
+
+    print("Choose the interface you want to use for the Authentication System:")
+    print("1. Console UI")
+    print("2. GUI")
+    while True:
+        try:
+            auth_choice = int(input("Enter your choice (1 or 2): "))
+            if auth_choice in [1, 2]:
+                break
+            else:
+                print("Invalid choice. Please enter 1 or 2.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+    if auth_choice == 1:
+        LogManager.log_activity("Console UI for Authentication System opened", "Authentication System")
+        run_auth_ui()
+    elif auth_choice == 2:
+        LogManager.log_activity("GUI for Authentication System opened", "Authentication System")
+        run_auth_gui()
+
+
     print("Choose the program to run:")
     print("1. Math Tests - You can test your math skills with this program. You will be given a series of math questions you choose to solve and gain score.")
     print("2. Compression of a text file - You can compress a text file by replacing words with abbreviations.")
