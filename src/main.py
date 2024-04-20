@@ -7,6 +7,8 @@ import math_testsGUI
 import todolistUI
 from authUI import run_auth_ui
 from authGUI import run_auth_gui
+from quizUI import run_quizUI
+from quizGUI import run_quizGUI
 
 
 def choose_math_tests_interface():
@@ -69,6 +71,20 @@ def choose_compression_interface():
 def run_compression_console_ui():
     compression()
 
+def choose_quiz_interface():
+    print("Welcome to the Quiz Application!")
+    print("Choose the interface you want to use:")
+    print("1. Console UI")
+    print("2. GUI")
+    while True:
+        try:
+            quiz_choice = int(input("Enter your choice (1 or 2): "))
+            if quiz_choice in [1, 2]:
+                return quiz_choice
+            else:
+                print("Invalid choice. Please enter 1 or 2.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
 if __name__ == "__main__":
     print("Welcome to the program!")
@@ -98,14 +114,15 @@ if __name__ == "__main__":
     print("1. Math Tests - You can test your math skills with this program. You will be given a series of math questions you choose to solve and gain score.")
     print("2. Compression of a text file - You can compress a text file by replacing words with abbreviations.")
     print("3. To-Do List - You can manage your tasks with this program.")
+    print("4. Quiz - You can create and take quizzes with this program.")
 
     while True:
         try:
             choice = int(input("Enter the number of the program you want to run: "))
-            if choice in [1, 2, 3]:
+            if choice in [1, 2, 3, 4]:
                 break
             else:
-                print("Invalid choice. Please enter a number between 1 and 3.")
+                print("Invalid choice. Please enter a number between 1 and 4.")
         except ValueError:
             print("Invalid input. Please enter a number.")
 
@@ -136,6 +153,15 @@ if __name__ == "__main__":
         elif ToDoUIchoice == 2:
             LogManager.log_activity("GUI for ToDo list opened", "To-Do List")
             run_ToDo_gui()
+    elif choice == 4:
+        LogManager.log_activity("Quiz Application started", "Quiz")
+        quiz_choice = choose_quiz_interface()
+        if quiz_choice == 1:
+            LogManager.log_activity("Console UI for Quiz opened", "Quiz")
+            run_quizUI()
+        elif quiz_choice == 2:
+            LogManager.log_activity("GUI for Quiz opened", "Quiz")
+            run_quizGUI()
     else:
         print("Invalid choice.")
 

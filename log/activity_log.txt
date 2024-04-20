@@ -5,3 +5,14 @@
 2024-04-20 18:02:04 - Task Marked as Complete: Task number: 2
 2024-04-20 18:02:09 - Task Deleted: Task number: 1
 2024-04-20 18:02:27 - Test: jooo
+2024-04-20 18:12:40 - Console UI for Authentication System opened: Authentication System
+2024-04-20 18:12:48 - Quiz program opened: Quiz
+2024-04-20 18:14:02 - Console UI for Authentication System opened: Authentication System
+2024-04-20 18:14:13 - Quiz Application started: Quiz
+2024-04-20 18:14:15 - Console UI for Quiz opened: Quiz
+2024-04-20 18:15:52 - Console UI for Authentication System opened: Authentication System
+2024-04-20 18:15:58 - Quiz Application started: Quiz
+2024-04-20 18:15:59 - GUI for Quiz opened: Quiz
+2024-04-20 18:24:58 - Console UI for Authentication System opened: Authentication System
+2024-04-20 18:25:03 - Quiz Application started: Quiz
+2024-04-20 18:25:04 - Console UI for Quiz opened: Quiz
