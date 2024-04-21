@@ -10,3 +10,6 @@
 2024-04-21 14:43:26 - Leaderboard shown: Quiz
 2024-04-21 14:43:35 - Quiz deleted: Quiz
 2024-04-21 14:43:39 - Quizzes listed: Quiz
+2024-04-21 18:06:45 - Console UI for Authentication System opened: Authentication System
+2024-04-21 18:07:29 - Work with txt files program started: Work with txt files
+2024-04-21 18:07:30 - GUI for Work with txt files opened: Work with txt files

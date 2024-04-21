@@ -9,6 +9,8 @@ from authUI import run_auth_ui
 from authGUI import run_auth_gui
 from quizGUI import run_quiz_GUI
 from quizUI import run_quizUI
+from work_with_txtUI import work_with_txt
+from work_with_txtGUI import run_work_with_txtGUI
 
 
 
@@ -87,7 +89,20 @@ def choose_quiz_interface():
         except ValueError:
             print("Invalid input. Please enter a number.")
 
-
+def choose_work_with_txt_interface():
+    print("Welcome to the program!")
+    print("Choose the interface you want to use:")
+    print("1. Console UI")
+    print("2. GUI")
+    while True:
+        try:
+            work_with_txt_UI_choice = int(input("Enter your choice (1 or 2): "))
+            if work_with_txt_UI_choice in [1, 2]:
+                return work_with_txt_UI_choice
+            else:
+                print("Invalid choice. Please enter 1 or 2.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
 if __name__ == "__main__":
     print("Welcome to the program!")
@@ -118,14 +133,15 @@ if __name__ == "__main__":
     print("2. Compression of a text file - You can compress a text file by replacing words with abbreviations.")
     print("3. To-Do List - You can manage your tasks with this program.")
     print("4. Quiz - You can create and take quizzes with this program.")
+    print("5. Work with txt files - You can read, write, delete, rename, copy, move, or add text to files. You can also count the number of words, lines, characters, special characters, digits, and spaces in a file.")
 
     while True:
         try:
             choice = int(input("Enter the number of the program you want to run: "))
-            if choice in [1, 2, 3, 4]:
+            if choice in [1, 2, 3, 4, 5]:
                 break
             else:
-                print("Invalid choice. Please enter a number between 1 and 4.")
+                print("Invalid choice. Please enter a number between 1 and 5.")
         except ValueError:
             print("Invalid input. Please enter a number.")
 
@@ -165,6 +181,15 @@ if __name__ == "__main__":
         elif QuizUIchoice == 2:
             LogManager.log_activity("GUI for Quiz opened", "Quiz")
             run_quiz_GUI()
+    elif choice == 5:
+        LogManager.log_activity("Work with txt files program started", "Work with txt files")
+        work_with_txt_UI_choice = choose_work_with_txt_interface()
+        if work_with_txt_UI_choice == 1:
+            LogManager.log_activity("Console UI for Work with txt files opened", "Work with txt files")
+            work_with_txt()
+        elif work_with_txt_UI_choice == 2:
+            LogManager.log_activity("GUI for Work with txt files opened", "Work with txt files")
+            run_work_with_txtGUI()
     else:
         print("Invalid choice.")
 

@@ -1,0 +1,33 @@
+Date : 2024-04-21 18:11:22
+Directory : c:\Users\adamo\Documents\GitHub\Omega\src
+Total : 7 files,  198 codes, 8 comments, 42 blanks, all 248 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Python   |          7 |        198 |          8 |         42 |        248 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                     | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                        |          7 |        198 |          8 |         42 |        248 |
+| . (Files)                                                                |          4 |        -27 |         -3 |        -18 |        -48 |
+| tests                                                                    |          3 |        225 |         11 |         60 |        296 |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                 | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\adamo\Documents\GitHub\Omega\src\main.py                        | Python   |         24 |          0 |         -1 |         23 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\test_work_with_txt.py          | Python   |        -47 |         -3 |        -17 |        -67 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_main6.py            | Python   |         64 |          0 |          9 |         73 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_work_with_txt.py    | Python   |         85 |         11 |         38 |        134 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\tests\test_work_with_txtGUI.py | Python   |         76 |          0 |         13 |         89 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\work_with_txtGUI.py            | Python   |         -2 |          0 |          0 |         -2 |
+| c:\Users\adamo\Documents\GitHub\Omega\src\work_with_txtUI.py             | Python   |         -2 |          0 |          0 |         -2 |
+| Total                                                                    |          |        198 |          8 |         42 |        248 |
++--------------------------------------------------------------------------+----------+------------+------------+------------+------------+
