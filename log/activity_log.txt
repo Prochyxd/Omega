@@ -13,3 +13,13 @@
 2024-04-21 18:06:45 - Console UI for Authentication System opened: Authentication System
 2024-04-21 18:07:29 - Work with txt files program started: Work with txt files
 2024-04-21 18:07:30 - GUI for Work with txt files opened: Work with txt files
+2024-04-21 19:53:29 - GUI for Authentication System opened: Authentication System
+2024-04-21 19:53:43 - GUI for guide opened: Guide
+2024-04-21 19:54:46 - Math Tests opened: Math Tests
+2024-04-21 19:54:47 - GUI for Math Tests opened: Math Tests
+2024-04-21 19:57:36 - Console UI for Authentication System opened: Authentication System
+2024-04-21 19:57:47 - Console UI for guide opened: Guide
+2024-04-21 19:57:56 - Compression program opened: Compression
+2024-04-21 19:58:35 - GUI for Compression opened: Compression
+2024-04-21 19:59:19 - Word Replacement: Word Replacements:
+the: 9999

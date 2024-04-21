@@ -1,26 +1,28 @@
 # Details
 
-Date : 2024-04-21 14:51:30
+Date : 2024-04-21 19:59:55
 
 Directory c:\\Users\\adamo\\Documents\\GitHub\\Omega\\src
 
-Total : 26 files,  1788 codes, 33 comments, 363 blanks, all 2184 lines
+Total : 34 files,  2544 codes, 60 comments, 509 blanks, all 3113 lines
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
 ## Files
 | filename | language | code | comment | blank | total |
 | :--- | :--- | ---: | ---: | ---: | ---: |
-| [src/algorithms.py](/src/algorithms.py) | Python | 13 | 1 | 5 | 19 |
+| [src/algorithms.py](/src/algorithms.py) | Python | 33 | 1 | 15 | 49 |
 | [src/auth.py](/src/auth.py) | Python | 68 | 0 | 17 | 85 |
 | [src/authGUI.py](/src/authGUI.py) | Python | 107 | 0 | 33 | 140 |
 | [src/authUI.py](/src/authUI.py) | Python | 25 | 0 | 5 | 30 |
 | [src/compressionGUI.py](/src/compressionGUI.py) | Python | 112 | 4 | 32 | 148 |
 | [src/compressionUI.py](/src/compressionUI.py) | Python | 89 | 10 | 20 | 119 |
 | [src/frequency_analyzer.py](/src/frequency_analyzer.py) | Python | 11 | 1 | 6 | 18 |
+| [src/guideGUI.py](/src/guideGUI.py) | Python | 69 | 0 | 21 | 90 |
+| [src/guideUI.py](/src/guideUI.py) | Python | 70 | 6 | 5 | 81 |
 | [src/log_manager.py](/src/log_manager.py) | Python | 26 | 0 | 4 | 30 |
 | [src/log_managerGUI.py](/src/log_managerGUI.py) | Python | 47 | 0 | 12 | 59 |
-| [src/main.py](/src/main.py) | Python | 180 | 0 | 24 | 204 |
+| [src/main.py](/src/main.py) | Python | 241 | 0 | 23 | 264 |
 | [src/math_tests.py](/src/math_tests.py) | Python | 73 | 0 | 7 | 80 |
 | [src/math_testsGUI.py](/src/math_testsGUI.py) | Python | 115 | 2 | 43 | 160 |
 | [src/math_testsUI.py](/src/math_testsUI.py) | Python | 31 | 0 | 3 | 34 |
@@ -29,13 +31,19 @@ Total : 26 files,  1788 codes, 33 comments, 363 blanks, all 2184 lines
 | [src/quizUI.py](/src/quizUI.py) | Python | 29 | 1 | 5 | 35 |
 | [src/tests/test_algorithms.py](/src/tests/test_algorithms.py) | Python | 29 | 0 | 7 | 36 |
 | [src/tests/test_frequency_analyzer.py](/src/tests/test_frequency_analyzer.py) | Python | 23 | 0 | 5 | 28 |
-| [src/tests/test_main.py](/src/tests/test_main.py) | Python | 36 | 0 | 6 | 42 |
+| [src/tests/test_main.py](/src/tests/test_main.py) | Python | 36 | 0 | 7 | 43 |
 | [src/tests/test_main2.py](/src/tests/test_main2.py) | Python | 64 | 0 | 11 | 75 |
 | [src/tests/test_main3.py](/src/tests/test_main3.py) | Python | 92 | 0 | 14 | 106 |
 | [src/tests/test_main4.py](/src/tests/test_main4.py) | Python | 123 | 0 | 21 | 144 |
 | [src/tests/test_main5.py](/src/tests/test_main5.py) | Python | 92 | 0 | 18 | 110 |
+| [src/tests/test_main6.py](/src/tests/test_main6.py) | Python | 64 | 0 | 9 | 73 |
+| [src/tests/test_work_with_txt.py](/src/tests/test_work_with_txt.py) | Python | 85 | 11 | 38 | 134 |
+| [src/tests/test_work_with_txtGUI.py](/src/tests/test_work_with_txtGUI.py) | Python | 76 | 0 | 13 | 89 |
 | [src/todolist.py](/src/todolist.py) | Python | 47 | 1 | 7 | 55 |
 | [src/todolistGUI.py](/src/todolistGUI.py) | Python | 83 | 5 | 19 | 107 |
 | [src/todolistUI.py](/src/todolistUI.py) | Python | 65 | 1 | 8 | 74 |
+| [src/work_with_txt.py](/src/work_with_txt.py) | Python | 123 | 9 | 15 | 147 |
+| [src/work_with_txtGUI.py](/src/work_with_txtGUI.py) | Python | 138 | 1 | 33 | 172 |
+| [src/work_with_txtUI.py](/src/work_with_txtUI.py) | Python | 50 | 0 | 2 | 52 |
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)

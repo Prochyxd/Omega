@@ -4,6 +4,22 @@ import re
 import os
 
 class Registration():
+    """
+    Class representing the registration process for a user.
+
+    Attributes:
+    - username (str): The username entered by the user.
+    - password (str): The password entered by the user.
+    - password2 (str): The password entered by the user for confirmation.
+    - email (str): The email address entered by the user.
+    - username_pattern (Pattern): The regular expression pattern for validating the username.
+    - password_pattern (Pattern): The regular expression pattern for validating the password.
+    - email_pattern (Pattern): The regular expression pattern for validating the email address.
+
+    Methods:
+    - register(): Performs the registration process by prompting the user for input and validating the input.
+    """
+
     def __init__(self):
         self.username = ""
         self.password = ""
@@ -14,6 +30,17 @@ class Registration():
         self.email_pattern = re.compile("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$")
     
     def register(self):
+        """
+        Performs the registration process by prompting the user for input and validating the input.
+
+        The user is prompted to enter their username, password, password confirmation, and email address.
+        The input is validated against the predefined regular expression patterns.
+        If the input is valid, the user's information is stored in a JSON file.
+        If the username already exists in the JSON file, the registration process is aborted.
+
+        Returns:
+        - None
+        """
         while True:
             self.username = input("Enter your username: ")
             if self.username_pattern.match(self.username):
@@ -61,11 +88,27 @@ class Registration():
         print("Registration successful.")
 
 class Login():
+    """
+    Represents a login process for a user.
+
+    Attributes:
+        username (str): The username entered by the user.
+        password (str): The password entered by the user.
+    """
+
     def __init__(self):
         self.username = ""
         self.password = ""
     
     def login(self):
+        """
+        Performs the login process.
+
+        This method prompts the user to enter their username and password.
+        It then checks if the username exists in the login data stored in "files\login.json".
+        If the username is found and the password matches, it prints "Login successful" and exits the loop.
+        If the username is not found or the password is incorrect, it prints an appropriate error message and continues the loop.
+        """
         while True:
             self.username = input("Enter your username: ")
             self.password = input("Enter your password: ")
