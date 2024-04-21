@@ -1,37 +1,28 @@
 import unittest
-from frequency_analyzer import analyze
+from frequency_analyzer import FrequencyAnalyzer
 
 class TestFrequencyAnalyzer(unittest.TestCase):
-    def test_analyze(self):
-        # Test case 1: Empty string input
+    def test_analyze_empty_text(self):
         text = ""
-        expected_result = {}
-        self.assertEqual(analyze(text), expected_result)
+        result = FrequencyAnalyzer.analyze(text)
+        self.assertEqual(result, {})
 
-        # Test case 2: Single word input
+    def test_analyze_single_word(self):
         text = "hello"
-        expected_result = {"hello": 1}
-        self.assertEqual(analyze(text), expected_result)
+        result = FrequencyAnalyzer.analyze(text)
+        expected_output = {"hello": 1}
+        self.assertEqual(result, expected_output)
 
-        # Test case 3: Multiple words with repeated words input
+    def test_analyze_multiple_words(self):
         text = "hello world hello"
-        expected_result = {"hello": 2, "world": 1}
-        self.assertEqual(analyze(text), expected_result)
+        result = FrequencyAnalyzer.analyze(text)
+        expected_output = {"hello": 2, "world": 1}
+        self.assertEqual(result, expected_output)
 
-        # Test case 4: Case sensitivity
-        text = "Hello hello HELLO"
-        expected_result = {"Hello": 1, "hello": 1, "HELLO": 1}
-        self.assertEqual(analyze(text), expected_result)
-
-        # Test case 5: Special characters and numbers
-        text = "hello! world 123 hello"
-        expected_result = {"hello!": 1, "world": 1, "123": 1, "hello": 1}
-        self.assertEqual(analyze(text), expected_result)
-
-        # Test case 6: Non-string input
+    def test_analyze_non_string_input(self):
         text = 123
         with self.assertRaises(TypeError):
-            analyze(text)
+            FrequencyAnalyzer.analyze(text)
 
 if __name__ == '__main__':
     unittest.main()

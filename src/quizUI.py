@@ -1,60 +1,34 @@
-from quiz import Quiz, load_quizzes_from_file
-
-class QuizUI:
-    def __init__(self, filename):
-        self.filename = filename
-        self.quizzes = load_quizzes_from_file(filename)
-
-    def create_quiz(self):
-        quiz_name = input("Enter the name of the quiz: ")
-        quiz = Quiz(quiz_name)
-        num_questions = int(input("Enter the number of questions: "))
-        for i in range(num_questions):
-            question = input("Enter question {}: ".format(i+1))
-            answer = input("Enter the answer: ")
-            quiz.add_question(question, answer)
-        quiz.save_to_file(self.filename)
-        print("Quiz created successfully!")
-
-    def take_quiz(self):
-        quiz_name = input("Enter the name of the quiz you want to take: ")
-        for quiz in self.quizzes:
-            if quiz.name == quiz_name:
-                quiz.take_quiz()
-                return
-        print("Quiz not found!")
-
-    def add_more_questions(self):
-        quiz_name = input("Enter the name of the quiz you want to add more questions to: ")
-        for quiz in self.quizzes:
-            if quiz.name == quiz_name:
-                quiz.add_more_questions()
-                quiz.save_to_file(self.filename)
-                print("Questions added successfully to the quiz.")
-                return
-        print("Quiz not found!")
+#quizUI.py
+from quiz import add_quiz, take_quiz, delete_quiz, list_quizzes
 
 def run_quizUI():
-    ui = QuizUI("files/quizzes.json")
     while True:
-        print("1. Create a Quiz")
-        print("2. Take a Quiz")
-        print("3. Add more questions to a Quiz")
-        print("4. Exit")
-        choice = input("Enter your choice: ")
-
-        if choice == "1":
-            ui.create_quiz()
-
-        elif choice == "2":
-            ui.take_quiz()
-
-        elif choice == "3":
-            ui.add_more_questions()
-
-        elif choice == "4":
-            print("Exiting...")
+        print("1. Add a quiz")
+        print("2. Take a quiz")
+        print("3. Delete a quiz")
+        print("4. List all quizzes")
+        print("5. Go back")
+        while True:
+            try:
+                choice = int(input("Enter your choice: "))
+                if choice in [1, 2, 3, 4, 5]:
+                    break
+                else:
+                    print("Invalid choice. Please enter a number between 1 and 5.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+        
+        if choice == 1:
+            add_quiz()
+        elif choice == 2:
+            take_quiz()
+        elif choice == 3:
+            delete_quiz()
+        elif choice == 4:
+            list_quizzes()
+        elif choice == 5:
             break
-
         else:
-            print("Invalid choice. Please try again.")
+            print("Invalid choice.")
+
+

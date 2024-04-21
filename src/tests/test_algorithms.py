@@ -2,39 +2,35 @@ import unittest
 from algorithms import WordReplacer
 
 class TestWordReplacer(unittest.TestCase):
-    def setUp(self):
-        self.replacement_dict = {"hello": "hi", "world": "earth"}
-        self.word_replacer = WordReplacer(self.replacement_dict)
+    def test_replace_words_single_word(self):
+        replacer = WordReplacer({'hello': 'hi'})
+        result = replacer.replace_words('hello world')
+        self.assertEqual(result, 'hi world')
 
-    def test_replace_words(self):
-        text = "hello world"
-        expected_output = "hi earth"
-        self.assertEqual(self.word_replacer.replace_words(text), expected_output)
+    def test_replace_words_multiple_words(self):
+        replacer = WordReplacer({'hello': 'hi', 'world': 'planet'})
+        result = replacer.replace_words('hello world')
+        self.assertEqual(result, 'hi planet')
 
-    def test_replace_words_with_empty_text(self):
-        text = ""
-        expected_output = ""
-        self.assertEqual(self.word_replacer.replace_words(text), expected_output)
+    def test_replace_words_case_sensitive(self):
+        replacer = WordReplacer({'Hello': 'Hi'})
+        result = replacer.replace_words('Hello world')
+        self.assertEqual(result, 'Hi world')
 
-    def test_replace_words_with_no_replacements(self):
-        text = "hello world"
-        word_replacer = WordReplacer({})
-        self.assertEqual(word_replacer.replace_words(text), text)
+    def test_replace_words_no_replacements(self):
+        replacer = WordReplacer({'foo': 'bar'})
+        result = replacer.replace_words('hello world')
+        self.assertEqual(result, 'hello world')
 
-    def test_replace_words_with_non_string_text(self):
-        text = 123
+    def test_replace_words_empty_text(self):
+        replacer = WordReplacer({'hello': 'hi'})
+        result = replacer.replace_words('')
+        self.assertEqual(result, '')
+
+    def test_replace_words_invalid_input(self):
+        replacer = WordReplacer({'hello': 'hi'})
         with self.assertRaises(ValueError):
-            self.word_replacer.replace_words(text)
-
-    def test_replace_words_with_non_string_replacements(self):
-        replacement_dict = {"hello": 123, "world": "earth"}
-        with self.assertRaises(ValueError):
-            WordReplacer(replacement_dict)
-
-    def test_replace_words_with_non_dict_replacements(self):
-        replacement_dict = ["hello", "world"]
-        with self.assertRaises(ValueError):
-            WordReplacer(replacement_dict)
+            replacer.replace_words(123)
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,18 +1,12 @@
-2024-04-20 18:01:29 - To-Do List started: To-Do List
-2024-04-20 18:01:34 - GUI for ToDo list opened: To-Do List
-2024-04-20 18:01:43 - Task Added: Task: Testicek, Description: testuju, Deadline: ted
-2024-04-20 18:01:55 - Task Marked as Complete: Task number: 1
-2024-04-20 18:02:04 - Task Marked as Complete: Task number: 2
-2024-04-20 18:02:09 - Task Deleted: Task number: 1
-2024-04-20 18:02:27 - Test: jooo
-2024-04-20 18:12:40 - Console UI for Authentication System opened: Authentication System
-2024-04-20 18:12:48 - Quiz program opened: Quiz
-2024-04-20 18:14:02 - Console UI for Authentication System opened: Authentication System
-2024-04-20 18:14:13 - Quiz Application started: Quiz
-2024-04-20 18:14:15 - Console UI for Quiz opened: Quiz
-2024-04-20 18:15:52 - Console UI for Authentication System opened: Authentication System
-2024-04-20 18:15:58 - Quiz Application started: Quiz
-2024-04-20 18:15:59 - GUI for Quiz opened: Quiz
-2024-04-20 18:24:58 - Console UI for Authentication System opened: Authentication System
-2024-04-20 18:25:03 - Quiz Application started: Quiz
-2024-04-20 18:25:04 - Console UI for Quiz opened: Quiz
+2024-04-21 14:34:27 - Quiz taken: Quiz
+2024-04-21 14:38:17 - Quizzes listed: Quiz
+2024-04-21 14:39:14 - Quiz added: Quiz
+2024-04-21 14:39:17 - Quizzes listed: Quiz
+2024-04-21 14:40:16 - Quizzes listed: Quiz
+2024-04-21 14:41:33 - Quiz added: Quiz
+2024-04-21 14:41:35 - Quizzes listed: Quiz
+2024-04-21 14:41:52 - Quiz taken: Quiz
+2024-04-21 14:41:58 - Quizzes listed: Quiz
+2024-04-21 14:43:26 - Leaderboard shown: Quiz
+2024-04-21 14:43:35 - Quiz deleted: Quiz
+2024-04-21 14:43:39 - Quizzes listed: Quiz

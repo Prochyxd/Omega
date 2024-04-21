@@ -7,8 +7,9 @@ import math_testsGUI
 import todolistUI
 from authUI import run_auth_ui
 from authGUI import run_auth_gui
+from quizGUI import run_quiz_GUI
 from quizUI import run_quizUI
-from quizGUI import run_quizGUI
+
 
 
 def choose_math_tests_interface():
@@ -78,13 +79,15 @@ def choose_quiz_interface():
     print("2. GUI")
     while True:
         try:
-            quiz_choice = int(input("Enter your choice (1 or 2): "))
-            if quiz_choice in [1, 2]:
-                return quiz_choice
+            QuizUIchoice = int(input("Enter your choice (1 or 2): "))
+            if QuizUIchoice in [1, 2]:
+                return QuizUIchoice
             else:
                 print("Invalid choice. Please enter 1 or 2.")
         except ValueError:
             print("Invalid input. Please enter a number.")
+
+
 
 if __name__ == "__main__":
     print("Welcome to the program!")
@@ -155,13 +158,13 @@ if __name__ == "__main__":
             run_ToDo_gui()
     elif choice == 4:
         LogManager.log_activity("Quiz Application started", "Quiz")
-        quiz_choice = choose_quiz_interface()
-        if quiz_choice == 1:
+        QuizUIchoice = choose_quiz_interface()
+        if QuizUIchoice == 1:
             LogManager.log_activity("Console UI for Quiz opened", "Quiz")
             run_quizUI()
-        elif quiz_choice == 2:
+        elif QuizUIchoice == 2:
             LogManager.log_activity("GUI for Quiz opened", "Quiz")
-            run_quizGUI()
+            run_quiz_GUI()
     else:
         print("Invalid choice.")
 

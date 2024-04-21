@@ -1,106 +1,137 @@
+import json
 import tkinter as tk
-from quiz import Quiz, load_quizzes_from_file
+from tkinter import messagebox, simpledialog
+from datetime import datetime
+from log_manager import LogManager  # Assuming you have this module
+
 
 class QuizGUI:
-    def __init__(self, root, filename):
-        self.root = root
-        self.root.title("Quiz Application")
-        self.filename = filename
-        self.quizzes = load_quizzes_from_file(filename)
+    def __init__(self, master):
+        self.master = master
+        self.master.title("Quiz Application")
 
-        self.create_quiz_btn = tk.Button(root, text="Create a Quiz", command=self.create_quiz)
-        self.create_quiz_btn.pack()
+        self.frame = tk.Frame(self.master)
+        self.frame.pack()
 
-        self.take_quiz_btn = tk.Button(root, text="Take a Quiz", command=self.take_quiz)
-        self.take_quiz_btn.pack()
+        self.button_add = tk.Button(self.frame, text="Add a quiz", command=self.add_quiz)
+        self.button_add.pack()
 
-        self.add_questions_btn = tk.Button(root, text="Add more questions to a Quiz", command=self.add_more_questions)
-        self.add_questions_btn.pack()
+        self.button_take = tk.Button(self.frame, text="Take a quiz", command=self.take_quiz)
+        self.button_take.pack()
 
-    def create_quiz(self):
-        create_quiz_window = tk.Toplevel(self.root)
-        create_quiz_window.title("Create a Quiz")
+        self.button_delete = tk.Button(self.frame, text="Delete a quiz", command=self.delete_quiz)
+        self.button_delete.pack()
 
-        quiz_name_label = tk.Label(create_quiz_window, text="Quiz Name:")
-        quiz_name_label.grid(row=0, column=0)
-        self.quiz_name_entry = tk.Entry(create_quiz_window)
-        self.quiz_name_entry.grid(row=0, column=1)
+        self.button_list = tk.Button(self.frame, text="List all quizzes", command=self.list_quizzes)
+        self.button_list.pack()
 
-        num_questions_label = tk.Label(create_quiz_window, text="Number of Questions:")
-        num_questions_label.grid(row=1, column=0)
-        self.num_questions_entry = tk.Entry(create_quiz_window)
-        self.num_questions_entry.grid(row=1, column=1)
+        self.button_leaderboard = tk.Button(self.frame, text="Show leaderboard", command=self.show_leaderboard)
+        self.button_leaderboard.pack()
 
-        submit_btn = tk.Button(create_quiz_window, text="Submit", command=self.submit_quiz)
-        submit_btn.grid(row=2, columnspan=2)
+        self.button_quit = tk.Button(self.frame, text="Quit", command=self.master.quit)
+        self.button_quit.pack()
 
-    def submit_quiz(self):
-        quiz_name = self.quiz_name_entry.get()
-        num_questions = int(self.num_questions_entry.get())
-        quiz = Quiz(quiz_name)
-        for i in range(num_questions):
-            question = input("Enter question {}: ".format(i+1))
-            answer = input("Enter the answer: ")
-            quiz.add_question(question, answer)
-        quiz.save_to_file(self.filename)
-        print("Quiz created successfully!")
+    def add_quiz(self):
+        name = simpledialog.askstring("Add Quiz", "Enter the name of the quiz:")
+        if name:
+            quiz = {"name": name, "questions": []}
+            while True:
+                question_text = simpledialog.askstring("Add Quiz", "Enter the question:")
+                if not question_text:
+                    break
+                answers = []
+                while True:
+                    answer = simpledialog.askstring("Add Quiz", "Enter an answer:")
+                    if not answer:
+                        break
+                    answers.append(answer)
+                    is_correct = messagebox.askyesno("Add Quiz", "Is this the correct answer?")
+                    if is_correct:
+                        correct_answer = answer
+                quiz["questions"].append({"question": question_text, "answers": answers, "correct_answer": correct_answer})
+            self.save_quiz(quiz)
+            LogManager.log_activity("Quiz added", "Quiz")
+
+    def save_quiz(self, quiz):
+        with open("files/quizzes.json", "r") as f:
+            quizzes = json.load(f)
+        quizzes.append(quiz)
+        with open("files/quizzes.json", "w") as f:
+            json.dump(quizzes, f)
 
     def take_quiz(self):
-        take_quiz_window = tk.Toplevel(self.root)
-        take_quiz_window.title("Take a Quiz")
+        with open("files/quizzes.json", "r") as f:
+            quizzes = json.load(f)
+        quiz_names = [quiz["name"] for quiz in quizzes]
+        if not quiz_names:
+            messagebox.showinfo("Take Quiz", "No quizzes available.")
+            return
 
-        quiz_name_label = tk.Label(take_quiz_window, text="Quiz Name:")
-        quiz_name_label.grid(row=0, column=0)
-        self.quiz_name_combobox = tk.StringVar()
-        self.quiz_name_combobox.set(list(self.quizzes.keys())[0] if self.quizzes else "")
-        quiz_name_dropdown = tk.OptionMenu(take_quiz_window, self.quiz_name_combobox, *self.quizzes.keys())
-        quiz_name_dropdown.grid(row=0, column=1)
+        selected_quiz = simpledialog.askstring("Take Quiz", "Enter the name of the quiz you want to take:")
+        if selected_quiz:
+            for quiz in quizzes:
+                if quiz["name"].lower() == selected_quiz.lower():
+                    score = 0
+                    for question in quiz["questions"]:
+                        user_answer = simpledialog.askstring("Take Quiz", question["question"] + "\n" + "\n".join(question["answers"]))
+                        if user_answer == question["correct_answer"]:
+                            score += 1
+                    name = simpledialog.askstring("Take Quiz", "Enter your name:")
+                    with open("files/quiz_leaderboard.json", "r") as f:
+                        leaderboard = json.load(f)
+                    leaderboard.append({"name": name, "score": score, "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
+                    with open("files/quiz_leaderboard.json", "w") as f:
+                        json.dump(leaderboard, f)
+                    LogManager.log_activity("Quiz taken", "Quiz")
+                    messagebox.showinfo("Quiz Results", "Your score is: {}".format(score))
+                    return
+            messagebox.showinfo("Take Quiz", "Quiz not found.")
 
-        take_quiz_btn = tk.Button(take_quiz_window, text="Take Quiz", command=self.take_selected_quiz)
-        take_quiz_btn.grid(row=1, columnspan=2)
+    def delete_quiz(self):
+        with open("files/quizzes.json", "r") as f:
+            quizzes = json.load(f)
+        quiz_names = [quiz["name"] for quiz in quizzes]
+        if not quiz_names:
+            messagebox.showinfo("Delete Quiz", "No quizzes available.")
+            return
 
-    def take_selected_quiz(self):
-        quiz_name = self.quiz_name_combobox.get()
-        for quiz in self.quizzes:
-            if quiz.name == quiz_name:
-                quiz.take_quiz()
-                return
-        print("Quiz not found!")
+        selected_quiz = simpledialog.askstring("Delete Quiz", "Enter the name of the quiz you want to delete:")
+        if selected_quiz:
+            for quiz in quizzes:
+                if quiz["name"].lower() == selected_quiz.lower():
+                    quizzes.remove(quiz)
+                    with open("files/quizzes.json", "w") as f:
+                        json.dump(quizzes, f)
+                    LogManager.log_activity("Quiz deleted", "Quiz")
+                    messagebox.showinfo("Delete Quiz", "Quiz deleted successfully.")
+                    return
+            messagebox.showinfo("Delete Quiz", "Quiz not found.")
 
-    def add_more_questions(self):
-        add_questions_window = tk.Toplevel(self.root)
-        add_questions_window.title("Add more questions to a Quiz")
+    def list_quizzes(self):
+        with open("files/quizzes.json", "r") as f:
+            quizzes = json.load(f)
+        quiz_names = [quiz["name"] for quiz in quizzes]
+        if not quiz_names:
+            messagebox.showinfo("List Quizzes", "No quizzes available.")
+            return
 
-        quiz_name_label = tk.Label(add_questions_window, text="Quiz Name:")
-        quiz_name_label.grid(row=0, column=0)
-        self.quiz_name_combobox = tk.StringVar()
-        self.quiz_name_combobox.set(list(self.quizzes.keys())[0] if self.quizzes else "")
-        quiz_name_dropdown = tk.OptionMenu(add_questions_window, self.quiz_name_combobox, *self.quizzes.keys())
-        quiz_name_dropdown.grid(row=0, column=1)
+        messagebox.showinfo("List Quizzes", "\n".join(quiz_names))
+        LogManager.log_activity("Quizzes listed", "Quiz")
 
-        num_questions_label = tk.Label(add_questions_window, text="Number of Additional Questions:")
-        num_questions_label.grid(row=1, column=0)
-        self.num_questions_entry = tk.Entry(add_questions_window)
-        self.num_questions_entry.grid(row=1, column=1)
+    def show_leaderboard(self):
+        with open("files/quiz_leaderboard.json", "r") as f:
+            leaderboard = json.load(f)
+        leaderboard_info = ["Name: {}, Score: {}, Date: {}".format(entry["name"], entry["score"], entry["date"]) for entry in leaderboard]
+        if not leaderboard_info:
+            messagebox.showinfo("Leaderboard", "No entries in the leaderboard.")
+            return
 
-        submit_btn = tk.Button(add_questions_window, text="Submit", command=self.add_questions_to_quiz)
-        submit_btn.grid(row=2, columnspan=2)
+        messagebox.showinfo("Leaderboard", "\n".join(leaderboard_info))
+        LogManager.log_activity("Leaderboard shown", "Quiz")
 
-    def add_questions_to_quiz(self):
-        quiz_name = self.quiz_name_combobox.get()
-        num_questions = int(self.num_questions_entry.get())
-        for quiz in self.quizzes:
-            if quiz.name == quiz_name:
-                for i in range(num_questions):
-                    question = input("Enter question {}: ".format(len(quiz.questions) + 1))
-                    answer = input("Enter the answer: ")
-                    quiz.add_question(question, answer)
-                quiz.save_to_file(self.filename)
-                print("Questions added successfully to the quiz.")
-                return
-        print("Quiz not found!")
 
-def run_quizGUI():
+def run_quiz_GUI():
     root = tk.Tk()
-    app = QuizGUI(root, "files/quizzes.json")
+    app = QuizGUI(root)
     root.mainloop()
+

@@ -1,1 +1,1 @@
-[]
+[{"name": "Jedna", "questions": [{"question": "5+5", "answers": ["5", "10", "6"], "correct_answer": "10"}, {"question": "1+1", "answers": ["2"], "correct_answer": "2"}]}, {"name": "Dva", "questions": [{"question": "Je to pravda?", "answers": ["ne", "Ano", "Kolik je mi"], "correct_answer": "ne"}, {"question": "Jak to funguje?", "answers": ["Jednoduse", "Slozite"], "correct_answer": "ne"}]}]
