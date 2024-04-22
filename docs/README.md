@@ -60,3 +60,8 @@ Contributions to this project are welcome! Please refer to the contributing guid
 
 This project has no licence (I guess) (I did not make any)
 
+## Credits
+
+Adam Procházka - Code + adjustments in ReadMe
+Copilot - Docs and comments
+ChatGPT - ReadMe + bug fixes
