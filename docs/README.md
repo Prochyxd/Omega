@@ -62,6 +62,6 @@ This project has no licence (I guess) (I did not make any)
 
 ## Credits
 
-Adam Procházka - Code + adjustments in ReadMe
+Adam Procházka - Idea, code + adjustments in ReadMe
 Copilot - Docs and comments
 ChatGPT - ReadMe + bug fixes

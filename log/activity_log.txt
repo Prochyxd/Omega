@@ -30,3 +30,5 @@ the: 9999
 2024-04-22 09:57:03 - Quizzes listed: Quiz
 2024-04-22 09:57:23 - Quiz taken: Quiz
 2024-04-22 09:57:27 - Leaderboard shown: Quiz
+2024-04-22 16:26:35 - GUI for Authentication System opened: Authentication System
+2024-04-22 16:27:45 - GUI for guide opened: Guide
