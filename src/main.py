@@ -15,6 +15,12 @@ from guideUI import run_guide_ui
 from guideGUI import run_guide_gui
 
 def choose_math_tests_interface():
+    """
+    Prompts the user to choose the interface for Math Tests.
+
+    Returns:
+        int: The user's choice of interface (1 for Console UI, 2 for GUI).
+    """
     print("Welcome to Math Tests!")
     print("Choose the interface you want to use:")
     print("1. Console UI")
@@ -36,6 +42,12 @@ def run_math_tests_gui():
     math_testsGUI.math_tests_gui()
 
 def choose_ToDo_interface():
+    """
+    Prompts the user to choose the interface for the To-Do List Application.
+
+    Returns:
+        int: The user's choice of interface (1 for Console UI, 2 for GUI).
+    """
     print("Welcome to the To-Do List Application!")
     print("Choose the interface you want to use:")
     print("1. Console UI")
@@ -57,6 +69,12 @@ def run_ToDo_gui():
     import todolistGUI
 
 def choose_compression_interface():
+    """
+    Prompts the user to choose a compression interface and returns the chosen option.
+
+    Returns:
+        int: The chosen compression interface option (1 for Console UI, 2 for GUI).
+    """
     print("Welcome to the Compression Tool!")
     print("Choose the interface you want to use:")
     print("1. Console UI")
@@ -75,6 +93,12 @@ def run_compression_console_ui():
     compression()
 
 def choose_quiz_interface():
+    """
+    Prompts the user to choose the interface for the Quiz Application.
+
+    Returns:
+        int: The user's choice of interface (1 for Console UI, 2 for GUI).
+    """
     print("Welcome to the Quiz Application!")
     print("Choose the interface you want to use:")
     print("1. Console UI")
@@ -90,6 +114,12 @@ def choose_quiz_interface():
             print("Invalid input. Please enter a number.")
 
 def choose_work_with_txt_interface():
+    """
+    Prompts the user to choose between a console UI or a GUI for working with text files.
+
+    Returns:
+        int: The user's choice (1 for console UI, 2 for GUI).
+    """
     print("Welcome to the program!")
     print("Choose the interface you want to use:")
     print("1. Console UI")
@@ -163,6 +193,7 @@ if __name__ == "__main__":
 
     elif guide_choice == 2:
         print("The guide has not been printed.")
+        
 while True:
     print("Choose the program to run:")
     print("1. Math Tests - You can test your math skills with this program. You will be given a series of math questions you choose to solve and gain score.")

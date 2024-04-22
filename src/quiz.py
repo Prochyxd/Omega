@@ -1,17 +1,18 @@
-#quiz.py
-#main logic for the program that will work with quizzes from file files/quizzes.json
-#user will insert his name to bet displayed in the leaderboard
-#user will be able to add quizz with multiple questions and answers
-#user will be able to take the quiz and get the score
-#user will be able to delete the quiz
-#user will be able to list all the quizzes
-
 import json
 import random
 from datetime import datetime
 from log_manager import LogManager
 
 def add_quiz():
+    """
+    Adds a new quiz to the quizzes.json file.
+
+    Prompts the user to enter the name of the quiz and a series of questions with their answers.
+    The quiz data is then stored in the quizzes.json file.
+
+    Returns:
+        None
+    """
     quiz = {}
     quiz["name"] = input("Enter the name of the quiz: ")
     quiz["questions"] = []
@@ -37,6 +38,17 @@ def add_quiz():
     LogManager.log_activity("Quiz added", "Quiz")
 
 def take_quiz():
+    """
+    Takes a quiz from the available quizzes and records the user's score in the leaderboard.
+
+    This function prompts the user to choose a quiz from a list of available quizzes,
+    displays each question with multiple-choice answers, and records the user's score
+    based on their selected answers. The user's name and score are then added to the
+    quiz leaderboard.
+
+    Returns:
+        None
+    """
     with open("files/quizzes.json", "r") as f:
         quizzes = json.load(f)
     print("Choose a quiz to take: ")
@@ -79,6 +91,19 @@ def take_quiz():
     LogManager.log_activity("Quiz taken", "Quiz")
 
 def delete_quiz():
+    """
+    Deletes a quiz from the quizzes.json file.
+
+    This function prompts the user to select a quiz number to delete from the quizzes.json file.
+    It loads the quizzes from the file, displays a list of available quizzes, and asks the user to enter the number of the quiz they want to delete.
+    If the input is valid, it removes the selected quiz from the quizzes list, updates the quizzes.json file, and logs the activity.
+
+    Parameters:
+    None
+
+    Returns:
+    None
+    """
     with open("files/quizzes.json", "r") as f:
         quizzes = json.load(f)
     for i, quiz in enumerate(quizzes):
@@ -97,7 +122,12 @@ def delete_quiz():
         json.dump(quizzes, f)
     LogManager.log_activity("Quiz deleted", "Quiz")
 
+import json
+
 def list_quizzes():
+    """
+    Lists all the quizzes from the quizzes.json file.
+    """
     with open("files/quizzes.json", "r") as f:
         quizzes = json.load(f)
     for quiz in quizzes:

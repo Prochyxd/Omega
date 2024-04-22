@@ -7,6 +7,15 @@ from log_manager import LogManager  # Assuming you have this module
 
 class QuizGUI:
     def __init__(self, master):
+        """
+        Initialize the QuizGUI class.
+
+        Args:
+            master: The master widget (typically a Tkinter.Tk instance) that serves as the parent of the QuizGUI.
+
+        Returns:
+            None
+        """
         self.master = master
         self.master.title("Quiz Application")
 
@@ -32,6 +41,16 @@ class QuizGUI:
         self.button_quit.pack()
 
     def add_quiz(self):
+        """
+        Adds a new quiz to the application.
+
+        Prompts the user to enter the name of the quiz and then proceeds to
+        add questions and answers to the quiz. The user can continue adding
+        questions until they choose to stop.
+
+        Returns:
+            None
+        """
         name = simpledialog.askstring("Add Quiz", "Enter the name of the quiz:")
         if name:
             quiz = {"name": name, "questions": []}
@@ -53,6 +72,15 @@ class QuizGUI:
             LogManager.log_activity("Quiz added", "Quiz")
 
     def save_quiz(self, quiz):
+        """
+        Saves the given quiz to the quizzes.json file.
+
+        Parameters:
+        - quiz (dict): The quiz to be saved.
+
+        Returns:
+        - None
+        """
         with open("files/quizzes.json", "r") as f:
             quizzes = json.load(f)
         quizzes.append(quiz)
@@ -60,6 +88,16 @@ class QuizGUI:
             json.dump(quizzes, f)
 
     def take_quiz(self):
+        """
+        Takes a quiz from the available quizzes and records the user's score and name in the leaderboard.
+
+        This method prompts the user to select a quiz from the available quizzes, then presents each question
+        one by one and asks the user for their answer. After the quiz is completed, the user's score is calculated
+        and their name, score, and the date are added to the quiz leaderboard.
+
+        Returns:
+            None
+        """
         with open("files/quizzes.json", "r") as f:
             quizzes = json.load(f)
         quiz_names = [quiz["name"] for quiz in quizzes]
@@ -88,6 +126,17 @@ class QuizGUI:
             messagebox.showinfo("Take Quiz", "Quiz not found.")
 
     def delete_quiz(self):
+        """
+        Deletes a quiz from the quizzes.json file.
+
+        This method prompts the user to enter the name of the quiz they want to delete.
+        If the quiz is found in the quizzes.json file, it is removed from the list of quizzes
+        and the updated list is saved back to the file. If the quiz is not found, an error
+        message is displayed.
+
+        Returns:
+            None
+        """
         with open("files/quizzes.json", "r") as f:
             quizzes = json.load(f)
         quiz_names = [quiz["name"] for quiz in quizzes]
@@ -108,6 +157,15 @@ class QuizGUI:
             messagebox.showinfo("Delete Quiz", "Quiz not found.")
 
     def list_quizzes(self):
+        """
+        Lists all available quizzes.
+
+        Reads the quizzes from the "files/quizzes.json" file and displays the names of the quizzes in a message box.
+        If no quizzes are available, a message box with a corresponding message is shown.
+
+        Returns:
+            None
+        """
         with open("files/quizzes.json", "r") as f:
             quizzes = json.load(f)
         quiz_names = [quiz["name"] for quiz in quizzes]
@@ -119,6 +177,17 @@ class QuizGUI:
         LogManager.log_activity("Quizzes listed", "Quiz")
 
     def show_leaderboard(self):
+        """
+        Display the leaderboard with the names, scores, and dates of the entries.
+
+        Reads the leaderboard data from the "files/quiz_leaderboard.json" file and formats the information
+        into a list of strings. If there are no entries in the leaderboard, a message box is displayed
+        indicating that there are no entries. Otherwise, a message box is displayed with the formatted
+        leaderboard information.
+
+        Returns:
+            None
+        """
         with open("files/quiz_leaderboard.json", "r") as f:
             leaderboard = json.load(f)
         leaderboard_info = ["Name: {}, Score: {}, Date: {}".format(entry["name"], entry["score"], entry["date"]) for entry in leaderboard]

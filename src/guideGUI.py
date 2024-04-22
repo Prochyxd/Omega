@@ -48,6 +48,18 @@ def work_with_txt_guide():
                         "Step by step: choose the file you want to work with, choose the function you want to use, then do the function.")
 
 def run_guide_gui():
+    """
+    Runs the guide GUI.
+
+    This function creates a Tkinter window and displays a guide UI with options to view the overall guide of the program
+    or the guide of a specific part of the program.
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
     root = tk.Tk()
     root.title("Guide UI")
 

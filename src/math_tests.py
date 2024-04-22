@@ -2,7 +2,14 @@ import random
 import time
 import json
 
+
 def load_problems():
+    """
+    Load math problems from a JSON file.
+
+    Returns:
+        list: A list of math problems.
+    """
     with open("files/math_problems.json", "r", encoding="utf-8") as file:
         problems = json.load(file)
     return problems

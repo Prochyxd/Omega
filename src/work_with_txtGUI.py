@@ -211,6 +211,19 @@ class FileOperationsApp:
             messagebox.showerror("Error", "No file selected.")
 
     def add_text_gui(self):
+        """
+        Adds text to a file selected by the user.
+
+        If a file is selected, it prompts the user to enter the text to add in the file.
+        If the user enters text, it calls the `add_text` function to add the text to the file.
+        Finally, it displays a message box with the result of the operation.
+
+        Raises:
+            None
+
+        Returns:
+            None
+        """
         if self.file_path:
             text = simpledialog.askstring("Text", "Enter the text to add in the file:")
             if text:
@@ -220,6 +233,19 @@ class FileOperationsApp:
             messagebox.showerror("Error", "No file selected.")
 
     def count_words_gui(self):
+        """
+        Counts the number of words in a selected file and displays the result in a message box.
+
+        If a file is selected, the method calls the `count_words` function passing the file path as an argument.
+        The returned message is then displayed in an information message box.
+        If no file is selected, an error message box is displayed.
+
+        Parameters:
+        - self: The instance of the class.
+
+        Returns:
+        - None
+        """
         if self.file_path:
             message = count_words(self.file_path)
             messagebox.showinfo("Message", message)
@@ -227,6 +253,19 @@ class FileOperationsApp:
             messagebox.showerror("Error", "No file selected.")
 
     def count_lines_gui(self):
+        """
+        Counts the number of lines in the selected file and displays the result in a message box.
+
+        If a file is selected, the method calls the `count_lines` function passing the file path as an argument.
+        The returned message is then displayed in an information message box.
+        If no file is selected, an error message box is displayed.
+
+        Args:
+            self: The instance of the class.
+
+        Returns:
+            None
+        """
         if self.file_path:
             message = count_lines(self.file_path)
             messagebox.showinfo("Message", message)
@@ -234,6 +273,19 @@ class FileOperationsApp:
             messagebox.showerror("Error", "No file selected.")
 
     def count_characters_gui(self):
+        """
+        Displays a message box with the count of characters in the selected file.
+
+        If a file is selected, it calls the `count_characters` function passing the file path as an argument.
+        The returned message is then displayed in an information message box.
+        If no file is selected, it displays an error message.
+
+        Args:
+            self: The instance of the class.
+
+        Returns:
+            None
+        """
         if self.file_path:
             message = count_characters(self.file_path)
             messagebox.showinfo("Message", message)
@@ -241,6 +293,19 @@ class FileOperationsApp:
             messagebox.showerror("Error", "No file selected.")
 
     def count_special_characters_gui(self):
+        """
+        Displays a message box with the count of special characters in the selected file.
+
+        If a file is selected, it calls the `count_special_characters` function passing the file path as an argument.
+        The returned message is then displayed in an information message box.
+        If no file is selected, it displays an error message.
+
+        Args:
+            self: The instance of the class.
+
+        Returns:
+            None
+        """
         if self.file_path:
             message = count_special_characters(self.file_path)
             messagebox.showinfo("Message", message)
@@ -248,6 +313,13 @@ class FileOperationsApp:
             messagebox.showerror("Error", "No file selected.")
 
     def count_digits_gui(self):
+        """
+        Displays a message box with the count of digits in the selected file.
+
+        If a file is selected, it calls the `count_digits` function passing the file path as an argument.
+        The returned count is then displayed in a message box with the title "Message".
+        If no file is selected, it displays an error message box with the title "Error".
+        """
         if self.file_path:
             message = count_digits(self.file_path)
             messagebox.showinfo("Message", message)
@@ -255,6 +327,19 @@ class FileOperationsApp:
             messagebox.showerror("Error", "No file selected.")
 
     def count_spaces_gui(self):
+        """
+        Counts the number of spaces in the selected file and displays a message box with the result.
+
+        If a file is selected, the method calls the `count_spaces` function passing the file path as an argument.
+        The returned message is then displayed in an information message box.
+        If no file is selected, an error message box is displayed.
+
+        Parameters:
+        - self: The instance of the class.
+
+        Returns:
+        - None
+        """
         if self.file_path:
             message = count_spaces(self.file_path)
             messagebox.showinfo("Message", message)

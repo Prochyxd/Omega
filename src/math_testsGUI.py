@@ -6,6 +6,24 @@ import json
 
 class MathTestsGUI:
     def __init__(self, root):
+        """
+        Initialize the MathTestsGUI class.
+
+        Args:
+            root: The root Tkinter window.
+
+        Attributes:
+            root (Tk): The root Tkinter window.
+            problems (list): A list of math problems.
+            name_label (Label): The label for entering the name.
+            name_entry (Entry): The entry field for entering the name.
+            start_button (Button): The button for starting the math tests.
+            category_label (Label): The label for selecting the category.
+            difficulty_label (Label): The label for selecting the difficulty.
+            category_radio_buttons (list): A list of radio buttons for selecting the category.
+            difficulty_radio_buttons (list): A list of radio buttons for selecting the difficulty.
+            answer_entry (Entry): The entry field for entering the answer.
+        """
         self.root = root
         self.root.title("Math Tests")
         self.root.geometry("800x600")  # Set the size of the window
@@ -26,16 +44,22 @@ class MathTestsGUI:
         self.category_radio_buttons = []
         self.difficulty_radio_buttons = []
 
-        # Define answer entry
         self.answer_entry = None
 
     def start_tests(self):
+        """
+        Starts the math tests.
+
+        This method retrieves the player's name from the name_entry widget.
+        If the name is not provided, it displays an error message.
+        Otherwise, it sets the player_name attribute and proceeds to create the GUI for selecting math category and difficulty.
+        """
         name = self.name_entry.get().strip()
         if not name:
             tk.messagebox.showerror("Error", "Please enter your name.")
             return
 
-        self.player_name = name  # Save the name
+        self.player_name = name 
 
         self.name_label.destroy()
         self.name_entry.destroy()
@@ -73,31 +97,60 @@ class MathTestsGUI:
         self.start_tests_button.pack()
 
     def start_math_tests(self):
-        for widget in [self.category_label, self.difficulty_label, self.start_tests_button]:
-            widget.destroy()
-        for radio_button in self.category_radio_buttons + self.difficulty_radio_buttons:
-            radio_button.configure(state="disabled")
+            """
+            Starts the math tests by performing the following steps:
+            1. Destroys the category label, difficulty label, and start tests button.
+            2. Disables all category and difficulty radio buttons.
+            3. Retrieves the selected category and difficulty.
+            4. Retrieves a list of problems based on the selected category and difficulty.
+            5. Shuffles the list of problems.
+            6. Selects the first 10 problems from the shuffled list.
+            7. Creates and displays the score label.
+            8. Creates and displays the score display label.
+            9. Records the start time of the tests.
+            10. Sets the current problem index to 0.
+            11. Calls the show_problem method to display the first problem from the list.
 
-        category = self.category_var.get()
-        difficulty = self.difficulty_var.get()
-        problems = self.problems[category][difficulty]
-        random.shuffle(problems)
-        problems = problems[:10]
+            Parameters:
+            - None
 
-        self.score_label = tk.Label(self.root, text="Score:")
-        self.score_label.pack()
+            Returns:
+            - None
+            """
+            for widget in [self.category_label, self.difficulty_label, self.start_tests_button]:
+                widget.destroy()
+            for radio_button in self.category_radio_buttons + self.difficulty_radio_buttons:
+                radio_button.configure(state="disabled")
 
-        self.score_var = tk.StringVar()
-        self.score_var.set("0")
-        score_display = tk.Label(self.root, textvariable=self.score_var)
-        score_display.pack()
+            category = self.category_var.get()
+            difficulty = self.difficulty_var.get()
+            problems = self.problems[category][difficulty]
+            random.shuffle(problems)
+            problems = problems[:10]
 
-        self.start_time = time.time()
+            self.score_label = tk.Label(self.root, text="Score:")
+            self.score_label.pack()
 
-        self.current_problem_index = 0
-        self.show_problem(problems)
+            self.score_var = tk.StringVar()
+            self.score_var.set("0")
+            score_display = tk.Label(self.root, textvariable=self.score_var)
+            score_display.pack()
+
+            self.start_time = time.time()
+
+            self.current_problem_index = 0
+            self.show_problem(problems)
 
     def show_problem(self, problems):
+        """
+        Displays a problem from the given list of problems.
+
+        Parameters:
+        - problems (list): A list of dictionaries representing the problems. Each dictionary should have a "problem" key.
+
+        Returns:
+        None
+        """
         if self.current_problem_index >= len(problems):
             self.end_tests()
             return
@@ -107,7 +160,6 @@ class MathTestsGUI:
         self.problem_label = tk.Label(self.root, text=problem["problem"])
         self.problem_label.pack()
 
-        # Entry for user's answer
         self.answer_entry = tk.Entry(self.root)
         self.answer_entry.pack()
 
@@ -115,24 +167,48 @@ class MathTestsGUI:
         self.submit_button.pack()
 
     def check_answer(self):
-        user_answer = self.answer_entry.get().strip()
-        problem = self.problems[self.category_var.get()][self.difficulty_var.get()][self.current_problem_index]
+            """
+            Checks the user's answer and updates the score.
 
-        if not user_answer:
-            tk.messagebox.showerror("Error", "Please enter your answer.")
-            return
+            Retrieves the user's answer from the answer_entry widget and strips any leading or trailing whitespace.
+            Retrieves the current problem based on the selected category, difficulty, and current problem index.
+            If the user's answer is empty, displays an error message and returns.
+            If the user's answer matches the correct answer for the problem, increments the score by 1.
+            Destroys the problem_label, answer_entry, and submit_button widgets.
+            Increments the current_problem_index by 1.
+            Calls the show_problem method to display the next problem.
 
-        if user_answer == problem["answer"]:
-            self.score_var.set(int(self.score_var.get()) + 1)
+            Returns:
+                None
+            """
+            user_answer = self.answer_entry.get().strip()
+            problem = self.problems[self.category_var.get()][self.difficulty_var.get()][self.current_problem_index]
 
-        self.problem_label.destroy()
-        self.answer_entry.destroy()
-        self.submit_button.destroy()
+            if not user_answer:
+                tk.messagebox.showerror("Error", "Please enter your answer.")
+                return
 
-        self.current_problem_index += 1
-        self.show_problem(self.problems[self.category_var.get()][self.difficulty_var.get()])
+            if user_answer == problem["answer"]:
+                self.score_var.set(int(self.score_var.get()) + 1)
+
+            self.problem_label.destroy()
+            self.answer_entry.destroy()
+            self.submit_button.destroy()
+
+            self.current_problem_index += 1
+            self.show_problem(self.problems[self.category_var.get()][self.difficulty_var.get()])
 
     def end_tests(self):
+        """
+        Ends the math tests and saves the score to the leaderboard.
+
+        Calculates the time taken for the tests, saves the score to the leaderboard file,
+        and destroys the score label, problem label, and submit button. Then, it displays
+        the leaderboard on the GUI.
+
+        Returns:
+            None
+        """
         end_time = time.time()
         time_taken = end_time - self.start_time
 

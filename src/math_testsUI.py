@@ -3,6 +3,15 @@ import time
 import math_tests as math_tests_module
 
 def math_tests():
+    """
+    Runs a math tests program.
+
+    This function prompts the user for their name, loads math problems, allows the user to choose a category and difficulty level,
+    generates a set of problems, calculates the user's score, records the time taken, and displays the leaderboard.
+
+    Returns:
+        None
+    """
     print("Welcome to Math Tests!")
     print("(Little advice: For harder math problems I recommend copying and pasting one of the given choices (this program is not case sensitive))")
     name = input("Enter your name that will be used for the leaderboard: ")

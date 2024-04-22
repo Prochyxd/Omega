@@ -1,6 +1,11 @@
 from work_with_txt import read_file, write_file, delete_file, rename_file, copy_file, move_file, add_text, count_words, count_lines, count_characters, count_special_characters, count_digits, count_spaces
 
 def work_with_txt():
+    """
+    This function provides a user interface for working with text files.
+    The user can choose from various options such as reading, writing, deleting, renaming, copying, moving, adding text, and counting different aspects of a text file.
+    The function takes user input for the choice and file path, and calls the respective functions based on the choice.
+    """
     while True:
         print("----------------------------------------")
         print("1. Read file")

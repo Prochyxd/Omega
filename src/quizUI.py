@@ -1,7 +1,22 @@
-#quizUI.py
 from quiz import add_quiz, take_quiz, delete_quiz, list_quizzes
 
 def run_quizUI():
+    """
+    Runs the quiz user interface.
+
+    This function displays a menu of options for the user to choose from and
+    performs the corresponding actions based on the user's choice.
+
+    Options:
+    1. Add a quiz
+    2. Take a quiz
+    3. Delete a quiz
+    4. List all quizzes
+    5. Go back
+
+    Returns:
+    None
+    """
     while True:
         print("1. Add a quiz")
         print("2. Take a quiz")
