@@ -52,8 +52,3 @@ Detailed explanation of the design patterns used in the project:
 Adam Procházka, C4C - prochazka7@spsejecna.cz - Ječná 30, Praha 2
 
 ---
-## Pictures
-
-![Cloc lines picture](cloc.png)
-
-![Guide GUI example](guide.png)
