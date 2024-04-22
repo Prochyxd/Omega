@@ -26,7 +26,7 @@ class MathTestsGUI:
         """
         self.root = root
         self.root.title("Math Tests")
-        self.root.geometry("800x600")  # Set the size of the window
+        self.root.geometry("800x600")
 
         self.problems = math_tests_module.load_problems()
 
