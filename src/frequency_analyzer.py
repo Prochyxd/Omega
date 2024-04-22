@@ -1,11 +1,21 @@
 from collections import Counter
 
-# frequency_analyzer.py
-
 class FrequencyAnalyzer:
+    """
+    A class for analyzing the frequency of words in a given text.
+    """
 
     @staticmethod
     def analyze(text):
+        """
+        Analyzes the frequency of words in the given text.
+
+        Args:
+            text (str): The text to analyze.
+
+        Returns:
+            Counter: A Counter object containing the word counts.
+        """
         if not isinstance(text, str):
             raise TypeError("Input must be a string")
         

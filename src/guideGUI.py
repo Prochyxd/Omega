@@ -66,6 +66,15 @@ def run_guide_gui():
     root.mainloop()
 
 def specific_guide(root):
+    """
+    Open a new window to display a specific guide.
+
+    Args:
+        root: The root window of the application.
+
+    Returns:
+        None
+    """
     specific_guide_window = tk.Toplevel(root)
     specific_guide_window.title("Specific Guide")
 

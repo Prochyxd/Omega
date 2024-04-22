@@ -1,7 +1,13 @@
-#this will be guide printed in console
-#the user will be able to look at this guide and understand how to use the program
-
 def run_guide_ui():
+    """
+    Runs the guide user interface for the program.
+
+    This function displays a guide menu to the user and allows them to choose between the overall guide of the program
+    or the guide of a specific part of the program. It then provides the corresponding guide information based on the user's choice.
+
+    Returns:
+        int: The user's choice (1, 2, or 3) to indicate whether to show the overall guide, specific guide, or exit the program.
+    """
     print("Guide in console:")
     print("Do you want to see the overall guide of the program or the guide of a specific part of the program?")
     print("1. Overall guide")
@@ -17,16 +23,12 @@ def run_guide_ui():
         except ValueError:
             print("Invalid input. Please enter a number.")
 
-    #this will be the overall guide printed in console
-    #the user will be able to look at this guide and understand how to use the program
         if guide_choice == 1:
             print("This program is a collection of different applications.")
             print("There is five applications in this program:")
             print("Math tests, To-Do List, Compression, Quiz and Work with txt.")
             print("You can choose the interface you want to use for each application (Console UI or GUI).")
             print("Enjoy using the program!")
-        #this will be the specific guide printed in console
-        #the user will be able to look at this guide and understand how to use the program
         elif guide_choice == 2:
             print("Which part of the program do you want to see the guide of?")
             print("1. Math tests")

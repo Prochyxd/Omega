@@ -5,6 +5,29 @@ from frequency_analyzer import FrequencyAnalyzer
 from log_manager import LogManager
 
 class CompressionGUI(tk.Tk):
+    """
+    A graphical user interface for a text compression tool.
+
+    This class represents the main window of the text compression tool. It provides
+    functionality for selecting input and output files, displaying word frequencies,
+    replacing words, and compressing text.
+
+    Attributes:
+        input_file_path (str): The path of the selected input file.
+        output_file_path (str): The path of the selected output file.
+        replacements (dict): A dictionary of word replacements, where the keys are words
+            to be replaced and the values are their corresponding abbreviations.
+
+    Methods:
+        __init__(): Initializes the CompressionGUI instance.
+        create_widgets(): Creates and displays the widgets for the compression GUI.
+        show_guide(): Displays a guide for using the compression tool.
+        get_input_file(): Opens a file dialog to select an input file.
+        get_output_file(): Opens a file dialog to select an output file.
+        get_word_replacements(): Opens a window to enter word replacements.
+        compress_text(): Compresses the text using the specified word replacements.
+    """
+
     def __init__(self):
         super().__init__()
         self.title("Text Compression Tool")
@@ -17,6 +40,18 @@ class CompressionGUI(tk.Tk):
         self.create_widgets()
 
     def create_widgets(self):
+        """
+        Creates and displays the widgets for the compression GUI.
+
+        This method creates and configures various widgets such as labels, buttons, and text fields
+        to be displayed in the compression GUI. It sets up the layout and functionality of the GUI.
+
+        Args:
+            self: The instance of the compression GUI.
+
+        Returns:
+            None
+        """
         tk.Label(self, text="Text Compression Tool", font=("Helvetica", 16)).pack(pady=10)
 
         self.show_guide_button = tk.Button(self, text="Show Guide", command=self.show_guide)
@@ -24,7 +59,6 @@ class CompressionGUI(tk.Tk):
 
         self.input_file_button = tk.Button(self, text="Select Input File", command=self.get_input_file)
         self.input_file_button.pack(pady=5)
-
 
         self.word_display_label = tk.Label(self, text="Words in the input text:")
         self.word_display_label.pack()
@@ -34,7 +68,7 @@ class CompressionGUI(tk.Tk):
 
         self.replace_button = tk.Button(self, text="Replace Words", command=self.get_word_replacements)
         self.replace_button.pack(pady=5)
-        
+
         self.output_file_button = tk.Button(self, text="Select Output File", command=self.get_output_file)
         self.output_file_button.pack(pady=5)
 
@@ -63,7 +97,6 @@ class CompressionGUI(tk.Tk):
                 frequency_analyzer = FrequencyAnalyzer()
                 word_counts = frequency_analyzer.analyze(input_text)
 
-                # Sort word counts by frequency (from most used to least used)
                 sorted_word_counts = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)
                 for word, count in sorted_word_counts:
                     self.word_display_text.insert(tk.END, f"{word}: {count}\n")
@@ -100,47 +133,54 @@ class CompressionGUI(tk.Tk):
         tk.Button(replacements_window, text="Add Replacement", command=add_replacement).pack(pady=5)
 
     def compress_text(self):
-        if not self.input_file_path:
-            messagebox.showerror("Error", "Please select an input file.")
-            return
-        if not self.output_file_path:
-            messagebox.showerror("Error", "Please select an output file.")
-            return
-        if not self.replacements:
-            messagebox.showerror("Error", "Please replace at least one word.")
-            return
+            """
+            Compresses the text based on the selected input file, output file, and word replacements.
 
-        try:
-            with open(self.input_file_path, "r", encoding="utf-8") as file:
-                input_text = file.read()
-        except FileNotFoundError:
-            messagebox.showerror("Error", "Input file not found.")
-            return
-        except Exception as e:
-            messagebox.showerror("Error", f"Error reading input file: {str(e)}")
-            return
+            Raises:
+                FileNotFoundError: If the input file is not found.
+                Exception: If there is an error reading the input file or saving the compressed text.
 
-        # Word frequency analysis
-        frequency_analyzer = FrequencyAnalyzer()
-        word_counts = frequency_analyzer.analyze(input_text)
+            Returns:
+                None
+            """
+            if not self.input_file_path:
+                messagebox.showerror("Error", "Please select an input file.")
+                return
+            if not self.output_file_path:
+                messagebox.showerror("Error", "Please select an output file.")
+                return
+            if not self.replacements:
+                messagebox.showerror("Error", "Please replace at least one word.")
+                return
 
-        replacements_text = "\n".join([f"{word}: {abbr}" for word, abbr in self.replacements.items()])
-        action_details = f"Word Replacements:\n{replacements_text}"
-        LogManager.log_activity("Word Replacement", action_details)
+            try:
+                with open(self.input_file_path, "r", encoding="utf-8") as file:
+                    input_text = file.read()
+            except FileNotFoundError:
+                messagebox.showerror("Error", "Input file not found.")
+                return
+            except Exception as e:
+                messagebox.showerror("Error", f"Error reading input file: {str(e)}")
+                return
 
-        # Replace words according to the configuration
-        word_replacer = WordReplacer(self.replacements)
-        compressed_text = word_replacer.replace_words(input_text)
+            frequency_analyzer = FrequencyAnalyzer()
+            word_counts = frequency_analyzer.analyze(input_text)
 
-        try:
-            # Save compressed text to the output file
-            with open(self.output_file_path, "w") as file:
-                file.write(compressed_text)
-        except Exception as e:
-            messagebox.showerror("Error", f"Error saving compressed text: {str(e)}")
-            return
+            replacements_text = "\n".join([f"{word}: {abbr}" for word, abbr in self.replacements.items()])
+            action_details = f"Word Replacements:\n{replacements_text}"
+            LogManager.log_activity("Word Replacement", action_details)
 
-        messagebox.showinfo("Success", "Text compression successful!")
+            word_replacer = WordReplacer(self.replacements)
+            compressed_text = word_replacer.replace_words(input_text)
+
+            try:
+                with open(self.output_file_path, "w") as file:
+                    file.write(compressed_text)
+            except Exception as e:
+                messagebox.showerror("Error", f"Error saving compressed text: {str(e)}")
+                return
+
+            messagebox.showinfo("Success", "Text compression successful!")
 
 def run_compression_gui():
     app = CompressionGUI()

@@ -1,5 +1,3 @@
-# algorithms.py
-
 class WordReplacer:
     """
     A class that replaces words in a given text based on a replacement dictionary.
