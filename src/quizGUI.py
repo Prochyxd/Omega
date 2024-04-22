@@ -2,7 +2,7 @@ import json
 import tkinter as tk
 from tkinter import messagebox, simpledialog
 from datetime import datetime
-from log_manager import LogManager  # Assuming you have this module
+from log_manager import LogManager
 
 
 class QuizGUI:
